@@ -5,6 +5,7 @@ import { Star, Award, Users, MapPin, Phone, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
+import rwandaimage from '../assets/destination-rwanda.jpg';
 
 const About = () => {
   const navigate = useNavigate();
@@ -109,11 +110,11 @@ const About = () => {
               </div>
               <div className="relative">
                 <img 
-                  src="/src/assets/destination-rwanda.jpg" 
+                  src={rwandaimage}
                   alt="Rwanda landscape" 
                   className="rounded-lg shadow-xl"
                 />
-                <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground p-4 rounded-lg">
+                <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground p-4 rounded-lg">
                   <p className="text-2xl font-bold">2014</p>
                   <p className="text-sm">Est.</p>
                 </div>
