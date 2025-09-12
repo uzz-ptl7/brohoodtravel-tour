@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Car, Package, Users, ArrowRight } from "lucide-react";
-import vehicleFleet from "@/assets/vehicle-fleet.jpg";
+import vehicleFleet1 from "@/assets/vehicle-fleet1.jpg";
+import vehicleFleet2 from "@/assets/vehicle-fleet2.jpg";
+import vehicleFleet3 from "@/assets/vehicle-fleet3.jpg";
 
 const Services = () => {
   const services = [
@@ -10,21 +12,21 @@ const Services = () => {
       title: "Transport Services",
       description: "Professional vehicle rental and transportation for all your travel needs. Modern fleet of well-maintained vehicles.",
       features: ["Airport Transfers", "City Tours", "Long Distance Travel", "24/7 Availability"],
-      image: vehicleFleet,
+      image: vehicleFleet1,
     },
     {
       icon: Package,
       title: "Travel Packages",
       description: "Carefully curated travel packages to amazing destinations with accommodation, meals, and guided tours included.",
       features: ["All-Inclusive Packages", "Custom Itineraries", "Group Discounts", "Local Guides"],
-      image: vehicleFleet,
+      image: vehicleFleet2,
     },
     {
       icon: Users,
       title: "Guided Tours",
       description: "Expert-led tours to discover the beauty of Rwanda and neighboring countries with experienced local guides.",
       features: ["Cultural Tours", "Wildlife Safaris", "Adventure Tours", "Educational Trips"],
-      image: vehicleFleet,
+      image: vehicleFleet3,
     }
   ];
 
