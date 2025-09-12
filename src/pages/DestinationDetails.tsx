@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import destinationRwanda from "../assets/destination-rwanda.jpg";
 
 interface Destination {
   id: string;
@@ -96,7 +97,7 @@ const DestinationDetails = () => {
         {/* Hero Section */}
         <div className="relative h-96 overflow-hidden">
           <img 
-            src={destination.image_url} 
+            src={destinationRwanda}
             alt={destination.name}
             className="w-full h-full object-cover"
           />

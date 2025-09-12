@@ -26,7 +26,7 @@ const Header = () => {
             <img
               src="/logo.png"
               alt="Brotherhood United Logo"
-              className="w-[150px] h-[150px] rounded-full object-cover"
+              className="w-[50px] h-[50px] rounded-full object-cover"
             />
             
             <div>
