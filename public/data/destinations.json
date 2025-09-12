@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Kigali City Tour",
+    "location": "Kigali",
+    "description": "Explore Rwanda’s vibrant capital, its culture, history, and innovation.",
+    "image_url": "../src/assets/dest-kgl.jpg",
+    "duration": "1 Day",
+    "max_capacity": 20,
+    "highlights": ["Genocide Memorial", "Local Market", "Kimironko Tour"]
+  },
+  {
+    "id": "2",
+    "name": "Lake Kivu Escape",
+    "location": "Rubavu",
+    "description": "Relax by the beautiful Lake Kivu and enjoy water-based activities.",
+    "image_url": "../src/assets/dest-kivu.jpg",
+    "duration": "2 Days",
+    "max_capacity": 15,
+    "highlights": ["Boat Cruise", "Coffee Tour", "Beach Walk"]
+  },
+  {
+    "id": "3",
+    "name": "Nyungwe Forest Adventure",
+    "location": "Nyungwe",
+    "description": "Trek through one of Africa’s oldest rainforests with rich biodiversity.",
+    "image_url": "../src/assets/dest-nyungwe.jpg",
+    "duration": "3 Days",
+    "max_capacity": 12,
+    "highlights": ["Canopy Walk", "Chimpanzee Trek", "Bird Watching"]
+  },
+  {
+    "id": "4",
+    "name": "Volcanoes Gorilla Trek",
+    "location": "Musanze",
+    "description": "Meet Rwanda’s mountain gorillas in Volcanoes National Park.",
+    "image_url": "../src/assets/dest-volcanoes.jpg",
+    "duration": "2 Days",
+    "max_capacity": 8,
+    "highlights": ["Gorilla Trekking", "Cultural Village", "Hiking"]
+  }
+]
