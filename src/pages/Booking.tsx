@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, MapPin, Calendar, Users, DollarSign } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Users } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
@@ -16,7 +16,6 @@ interface Destination {
   id: string;
   name: string;
   location: string;
-  price_per_person: number;
   max_capacity: number;
   duration: string;
 }
@@ -44,7 +43,7 @@ const Booking = () => {
       try {
         const { data, error } = await supabase
           .from('destinations')
-          .select('id, name, location, price_per_person, max_capacity, duration')
+          .select('id, name, location, max_capacity, duration')
           .eq('id', id)
           .single();
 
@@ -72,8 +71,6 @@ const Booking = () => {
     setSubmitting(true);
     
     try {
-      const totalPrice = destination.price_per_person * parseInt(formData.numberOfPeople);
-      
       const { error } = await supabase
         .from('bookings')
         .insert({
@@ -84,14 +81,14 @@ const Booking = () => {
           number_of_people: parseInt(formData.numberOfPeople),
           preferred_date: formData.preferredDate,
           message: formData.message,
-          total_price: totalPrice
+          total_price: 0 // Set this to the correct price if you have pricing logic
         });
 
       if (error) throw error;
 
       toast({
         title: "Booking Submitted!",
-        description: "We'll contact you within 24 hours to confirm your booking and arrange payment.",
+        description: "We'll contact you within 24 hours to confirm your booking.",
       });
 
       // Reset form
@@ -124,8 +121,6 @@ const Booking = () => {
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
-
-  const totalPrice = destination ? destination.price_per_person * parseInt(formData.numberOfPeople || '1') : 0;
 
   if (loading) {
     return (
@@ -312,26 +307,11 @@ const Booking = () => {
                     </span>
                     <span className="font-medium">{formData.numberOfPeople} {parseInt(formData.numberOfPeople) === 1 ? 'Person' : 'People'}</span>
                   </div>
-                  
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground flex items-center">
-                      <DollarSign className="h-4 w-4 mr-2" />
-                      Price per person:
-                    </span>
-                    <span className="font-medium">${destination.price_per_person}</span>
-                  </div>
-                </div>
-
-                <div className="border-t pt-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold text-foreground">Total:</span>
-                    <span className="text-2xl font-bold text-primary">${totalPrice}</span>
-                  </div>
                 </div>
 
                 <div className="bg-accent/10 p-4 rounded-lg">
                   <p className="text-sm text-muted-foreground">
-                    <strong>Note:</strong> This is a booking request. We'll contact you within 24 hours to confirm availability and arrange payment details.
+                    <strong>Note:</strong> This is a booking request. We'll contact you within 24 hours to confirm availability.
                   </p>
                 </div>
               </CardContent>

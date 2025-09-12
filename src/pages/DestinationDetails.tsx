@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, MapPin, Calendar, Users, DollarSign, Camera } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Users, Camera } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
@@ -17,7 +17,6 @@ interface Destination {
   description: string;
   image_url: string;
   duration: string;
-  price_per_person: number;
   max_capacity: number;
   highlights: string[];
 }
@@ -51,6 +50,7 @@ const DestinationDetails = () => {
         });
       } finally {
         setLoading(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     };
 
@@ -93,7 +93,7 @@ const DestinationDetails = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-24">
+      <main>
         {/* Hero Section */}
         <div className="relative h-96 overflow-hidden">
           <img 
@@ -139,7 +139,7 @@ const DestinationDetails = () => {
                       {destination.description}
                     </p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                       <div className="text-center p-4 bg-accent/10 rounded-lg">
                         <Calendar className="h-8 w-8 text-primary mx-auto mb-2" />
                         <h3 className="font-semibold text-foreground mb-1">Duration</h3>
@@ -150,12 +150,6 @@ const DestinationDetails = () => {
                         <Users className="h-8 w-8 text-primary mx-auto mb-2" />
                         <h3 className="font-semibold text-foreground mb-1">Group Size</h3>
                         <p className="text-muted-foreground">Up to {destination.max_capacity} people</p>
-                      </div>
-                      
-                      <div className="text-center p-4 bg-accent/10 rounded-lg">
-                        <DollarSign className="h-8 w-8 text-primary mx-auto mb-2" />
-                        <h3 className="font-semibold text-foreground mb-1">Price</h3>
-                        <p className="text-muted-foreground">${destination.price_per_person} per person</p>
                       </div>
                     </div>
 
@@ -174,18 +168,10 @@ const DestinationDetails = () => {
                 </Card>
               </div>
 
-              {/* Booking Sidebar */}
+              {/* Sidebar */}
               <div className="lg:col-span-1">
                 <Card className="border-0 shadow-lg sticky top-8">
                   <CardContent className="p-6">
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl font-bold text-foreground mb-2">Book This Trip</h3>
-                      <p className="text-3xl font-bold text-primary">
-                        ${destination.price_per_person}
-                        <span className="text-sm font-normal text-muted-foreground">/person</span>
-                      </p>
-                    </div>
-                    
                     <div className="space-y-4 mb-6">
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Duration:</span>

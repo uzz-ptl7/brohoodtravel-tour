@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Camera, Calendar, DollarSign, Users } from "lucide-react";
+import { MapPin, Camera, Calendar, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -14,7 +14,6 @@ interface Destination {
   description: string;
   image_url: string;
   duration: string;
-  price_per_person: number;
   max_capacity: number;
   highlights: string[];
 }
@@ -35,10 +34,9 @@ const Destinations = () => {
 
         if (error) throw error;
         
-        // Use the actual image URLs from database, fallback to local image
         const destinationsWithImages = data.map(dest => ({
           ...dest,
-          image_url: destinationRwanda // Using local image for now since paths in DB might not work
+          image_url: destinationRwanda
         }));
         
         setDestinations(destinationsWithImages);
@@ -101,9 +99,6 @@ const Destinations = () => {
                       {destination.location}
                     </div>
                   </div>
-                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-sm font-bold px-3 py-1 rounded-full">
-                    ${destination.price_per_person}
-                  </div>
                 </div>
                 
                 <CardContent className="p-4">
@@ -120,14 +115,10 @@ const Destinations = () => {
                       <Users className="h-4 w-4 mr-1" />
                       Up to {destination.max_capacity}
                     </div>
-                    <div className="flex items-center text-muted-foreground">
-                      <DollarSign className="h-4 w-4 mr-1" />
-                      ${destination.price_per_person}/person
-                    </div>
-                    <div className="flex items-center text-muted-foreground">
-                      <Camera className="h-4 w-4 mr-1" />
-                      {destination.highlights.length} Activities
-                    </div>
+                  </div>
+                  <div className="text-center mb-4 text-sm flex items-center justify-center text-muted-foreground">
+                    <Camera className="h-4 w-4 mr-1" />
+                    {destination.highlights.length} Activities
                   </div>
                   
                   <div className="flex flex-wrap gap-1 mb-4">
@@ -136,11 +127,6 @@ const Destinations = () => {
                         {highlight}
                       </span>
                     ))}
-                    {destination.highlights.length > 2 && (
-                      <span className="text-xs text-muted-foreground">
-                        +{destination.highlights.length - 2} more
-                      </span>
-                    )}
                   </div>
                   
                   <Button 
