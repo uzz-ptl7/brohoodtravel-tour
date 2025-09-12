@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import destkgl from "@/assets/dest-kgl.jpg";
+import destkivu from "@/assets/dest-kivu.jpg";
+import destnyungwe from "@/assets/dest-nyungwe.jpg";
+import destvolcanoes from "@/assets/dest-volcanoes.jpg";
 import destinationRwanda from "@/assets/destination-rwanda.jpg";
 
 interface Destination {
