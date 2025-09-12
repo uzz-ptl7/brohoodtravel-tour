@@ -100,14 +100,14 @@ const DestinationDetails = () => {
             alt={destination.name}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/50" />
           
           <div className="absolute bottom-8 left-8 right-8">
             <div className="container mx-auto px-4">
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="mb-4 bg-white/10 text-white border-white/20 hover:bg-white/20"
+                className="mb-4 bg-white/10 text-white border-white/20 hover:bg-white/80"
                 onClick={() => navigate('/')}
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
