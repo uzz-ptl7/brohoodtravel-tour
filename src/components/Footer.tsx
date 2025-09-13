@@ -17,7 +17,7 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold">Brotherhood United</h3>
-                <p className="text-primary-foreground/80">Transport & Travel Services</p>
+                <p className="text-primary-foreground/80">Company LTD</p>
               </div>
             </div>
             <p className="text-primary-foreground/90 mb-4 max-w-md">

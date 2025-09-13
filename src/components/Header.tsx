@@ -34,7 +34,7 @@ const Header = () => {
                 Brotherhood United
               </h1>
               <p className="text-sm text-muted-foreground">
-                Transport & Travel
+                Company LTD
               </p>
             </div>
           </div>
