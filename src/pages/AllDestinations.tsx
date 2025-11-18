@@ -255,14 +255,16 @@ const AllDestinations = () => {
                                         window.open(whatsappUrl, "_blank");
                                     }}
                                 >
-                                    Request Custom Destination
+                                    WhatsApp Us
                                 </Button>
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    onClick={() => navigate("/#contact")}
+                                    asChild
                                 >
-                                    Contact Us
+                                    <a href="mailto:brotherhoodcompany200@gmail.com?subject=Custom Destination Request&body=Hi! I'm interested in a custom destination not listed on your website.">
+                                        Email Us
+                                    </a>
                                 </Button>
                             </div>
                         </CardContent>

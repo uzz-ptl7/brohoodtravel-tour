@@ -222,13 +222,18 @@ const FAQSection = () => {
                             Can't find what you're looking for? Our team is here to help!
                         </CardDescription>
                     </CardHeader>
-                    <CardContent className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <CardContent className="flex flex-col sm:flex-row gap-3 justify-center">
                         <Button variant="travel" size="lg" onClick={handleAskQuestion} className="gap-2">
                             <MessageSquarePlus className="h-5 w-5" />
-                            Ask on WhatsApp
+                            WhatsApp
                         </Button>
                         <Button variant="outline" size="lg" asChild>
-                            <a href="tel:+250786425200">Call +250 786 425 200</a>
+                            <a href="mailto:brotherhoodcompany200@gmail.com?subject=Question about Brotherhood Company Services&body=Hi! I have a question about your services.">
+                                Email Us
+                            </a>
+                        </Button>
+                        <Button variant="outline" size="lg" asChild>
+                            <a href="tel:+250786425200">Call Us</a>
                         </Button>
                     </CardContent>
                 </Card>

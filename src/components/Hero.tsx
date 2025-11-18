@@ -6,14 +6,14 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         {/* Brown overlay tint */}
         <div className="absolute inset-0 bg-primary/40"></div>
       </div>
-      
+
       {/* Content */}
       <div className="relative container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
@@ -21,16 +21,21 @@ const Hero = () => {
             Your Journey
             <span className="block text-white/90">Starts Here</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
-            Professional transport, unforgettable travel packages, and guided tours 
+            Professional transport, unforgettable travel packages, and guided tours
             across beautiful destinations. Safe, reliable, and comfortable.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             {/* Primary CTA */}
-            <Button variant="hero" size="lg" className="text-lg px-8 py-6">
-              Book Transport
+            <Button
+              variant="hero"
+              size="lg"
+              className="text-lg px-8 py-6"
+              onClick={() => window.location.href = '/destinations'}
+            >
+              Book Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             {/* Secondary CTA */}
@@ -38,11 +43,12 @@ const Hero = () => {
               variant="hero"
               size="lg"
               className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              View Packages
+              View Our Services
             </Button>
           </div>
-          
+
           {/* Trust Indicators */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="flex items-center justify-center space-x-2">

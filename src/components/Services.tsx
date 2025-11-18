@@ -86,7 +86,7 @@ const Services = () => {
               </CardHeader>
 
               <CardContent>
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-sm text-muted-foreground">
                       <ArrowRight className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
@@ -94,10 +94,6 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-
-                <Button variant="travel" className="w-full">
-                  Learn More
-                </Button>
               </CardContent>
             </Card>
           ))}

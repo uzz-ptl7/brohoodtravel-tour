@@ -223,7 +223,7 @@ const About = () => {
                 variant="outline"
                 size="lg"
                 className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/destinations')}
               >
                 View Destinations
               </Button>

@@ -28,7 +28,7 @@ const Header = () => {
               alt="Brotherhood United Logo"
               className="w-[50px] h-[50px] rounded-full object-cover"
             />
-            
+
             <div>
               <h1 className="text-xl font-bold text-foreground">
                 Brotherhood United
@@ -72,7 +72,7 @@ const Header = () => {
             <Button
               variant="travel"
               size="lg"
-              onClick={() => (window.location.href = "/#contact")}
+              onClick={() => (window.location.href = "/destinations")}
             >
               Book Now
             </Button>
@@ -122,7 +122,7 @@ const Header = () => {
               variant="travel"
               size="lg"
               className="w-full"
-              onClick={() => (window.location.href = "/#contact")}
+              onClick={() => (window.location.href = "/destinations")}
             >
               Book Now
             </Button>
