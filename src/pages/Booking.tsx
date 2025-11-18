@@ -69,30 +69,53 @@ const Booking = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!destination) return;
 
     setSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
+      const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          destination: destination.name,
+          location: destination.location,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Booking Submitted!",
+          description: `Your booking request for ${destination.name} has been received. You will receive confirmation soon.`,
+        });
+
+        // Reset form
+        setFormData({
+          customerName: "",
+          customerEmail: "",
+          customerPhone: "",
+          numberOfPeople: "1",
+          preferredDate: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
       toast({
-        title: "Booking Submitted!",
-        description: `Your booking request for ${destination.name} has been received. You will receive confirmation soon.`,
+        title: "Submission Failed",
+        description: "There was an error submitting your booking. Please try again or contact us directly.",
+        variant: "destructive",
       });
-
-      // Reset form
-      setFormData({
-        customerName: "",
-        customerEmail: "",
-        customerPhone: "",
-        numberOfPeople: "1",
-        preferredDate: "",
-        message: "",
-      });
-
+    } finally {
       setSubmitting(false);
-    }, 1000);
+    }
   };
 
   if (loading) {

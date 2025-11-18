@@ -21,8 +21,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-primary-foreground/90 mb-4 max-w-md">
-              Your trusted partner for safe, reliable, and comfortable transportation 
-              services across Rwanda and beyond. Experience the difference with our 
+              Your trusted partner for safe, reliable, and comfortable transportation
+              services across Rwanda and beyond. Experience the difference with our
               professional travel solutions.
             </p>
             <div className="space-y-2">
@@ -34,7 +34,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
@@ -61,7 +61,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
@@ -84,18 +84,18 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="flex lg:flex-row flex-col justify-between border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/80 text-sm">
             © 2025 Brotherhood United Company Ltd. All rights reserved.
           </p>
-                      
-          <p className="text-gray-400 text-sm">
+
+          <p className="text-gray-300 text-sm">
             Made in Rwanda by the{" "}
-            <a 
-              href="https://www.sitecraftersz.co/" 
-              className="underline hover:text-white transition-colors duration-500" 
-              target="_blank" 
+            <a
+              href="https://www.sitecraftersz.co/"
+              className="underline hover:text-white transition-colors duration-500"
+              target="_blank"
               rel="noopener noreferrer"
             >
               Sitecrafters Team

@@ -6,6 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, MapPin, Calendar, Users, Camera } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import SocialShare from "@/components/SocialShare";
+import TravelTips from "@/components/TravelTips";
 
 interface Destination {
   id: string;
@@ -56,11 +59,19 @@ const DestinationDetails = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${destination.name} - Brotherhood Company Tours`}
+        description={destination.description}
+        keywords={`${destination.name}, ${destination.location}, Rwanda travel, ${destination.highlights.join(", ")}`}
+        url={`https://brohoodtravel-tour.netlify.app/destination/${destination.id}`}
+        image={destination.image_url}
+        type="article"
+      />
       <Header />
 
       <main>
         <div className="relative h-96 overflow-hidden">
-          <img 
+          <img
             src={destination.image_url}
             alt={destination.name}
             className="w-full h-full object-cover"
@@ -115,12 +126,22 @@ const DestinationDetails = () => {
                       <Camera className="h-6 w-6 mr-2" />
                       Highlights
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {destination.highlights.map((highlight, index) => (
                         <Badge key={index} variant="secondary" className="text-sm py-2 px-3">
                           {highlight}
                         </Badge>
                       ))}
+                    </div>
+
+                    {/* Social Share */}
+                    <div className="flex items-center justify-between border-t pt-6">
+                      <h4 className="font-semibold">Share this destination:</h4>
+                      <SocialShare
+                        url={`https://brohoodtravel-tour.netlify.app/destination/${destination.id}`}
+                        title={destination.name}
+                        description={destination.description}
+                      />
                     </div>
                   </CardContent>
                 </Card>
@@ -168,6 +189,9 @@ const DestinationDetails = () => {
             </div>
           </div>
         </section>
+
+        {/* Travel Tips Section */}
+        <TravelTips destinationId={destination.id} />
       </main>
 
       <Footer />

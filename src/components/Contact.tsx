@@ -22,23 +22,48 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate submission
-    toast({
-      title: "Message Submitted!",
-      description: "Thank you! We'll contact you within 24 hours regarding your request.",
-    });
+    try {
+      // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
+      const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: "",
-    });
+      if (response.ok) {
+        toast({
+          title: "Message Submitted!",
+          description: "Thank you! We'll contact you within 24 hours regarding your request.",
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your request. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -119,7 +144,7 @@ const Contact = () => {
               <CardDescription>Fill out this form and we'll get back to you within 24 hours</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
@@ -165,9 +190,12 @@ const Contact = () => {
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="transport">Transport Services</SelectItem>
-                        <SelectItem value="packages">Travel Packages</SelectItem>
-                        <SelectItem value="tours">Guided Tours</SelectItem>
+                        <SelectItem value="tours">Tours and Travel</SelectItem>
+                        <SelectItem value="vip-transport">VIP Transportation</SelectItem>
+                        <SelectItem value="airport">Airport Pickup/Dropping</SelectItem>
+                        <SelectItem value="hotel">Hotel Reservations</SelectItem>
+                        <SelectItem value="car-rental">Car Rental Services</SelectItem>
+                        <SelectItem value="expert-drivers">Expert Drivers</SelectItem>
                         <SelectItem value="custom">Custom Request</SelectItem>
                       </SelectContent>
                     </Select>
@@ -186,8 +214,8 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="travel" size="lg" className="w-full">
-                  Submit Booking Request
+                <Button type="submit" variant="travel" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit Message"}
                 </Button>
               </form>
             </CardContent>
