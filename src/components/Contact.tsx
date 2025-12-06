@@ -80,7 +80,7 @@ const Contact = () => {
 
   const handleWhatsAppSubmit = () => {
     setShowSubmitDialog(false);
-    
+
     const message = `*SERVICE INQUIRY*
 ━━━━━━━━━━━━━━━━━━━━
 
@@ -108,15 +108,15 @@ ${formData.message}
 _Sent from Brotherhood Travel Website_`;
 
     const whatsappUrl = `https://wa.me/250786425200?text=${encodeURIComponent(message)}`;
-    
+
     toast({
       title: "Opening WhatsApp",
       description: "Your inquiry will be sent via WhatsApp.",
     });
-    
+
     // Detect mobile device for better compatibility
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
+
     if (isMobile) {
       // On mobile, use location.href to open WhatsApp app directly
       window.location.href = whatsappUrl;
@@ -140,191 +140,191 @@ _Sent from Brotherhood Travel Website_`;
 
   return (
     <>
-    <section id="contact" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Get In Touch</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to start your journey? Contact us for personalized travel solutions and competitive pricing.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div>
-            <Card className="border-0 shadow-lg mb-8">
-              <CardHeader>
-                <CardTitle className="text-2xl">Contact Information</CardTitle>
-                <CardDescription>Get in touch with our travel experts</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-5 w-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Phone Numbers</h4>
-                    <p className="text-muted-foreground">+250 786 425 200</p>
-                    <p className="text-muted-foreground">+250 788 485 847</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-5 w-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">brotherhoodcompany<br />200@gmail.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-5 w-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Location</h4>
-                    <p className="text-muted-foreground">Kigali, Rwanda</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-5 w-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Business Hours</h4>
-                    <p className="text-muted-foreground">Monday - Sunday: 24/7</p>
-                    <p className="text-muted-foreground">Emergency Services Available</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="bg-primary text-primary-foreground p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-2">TIN: 121686474</h3>
-              <p className="text-primary-foreground/90">
-                Licensed and registered travel company providing professional transport and tourism services across Rwanda.
-              </p>
-            </div>
+      <section id="contact" className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Get In Touch</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Ready to start your journey? Contact us for personalized travel solutions and competitive pricing.
+            </p>
           </div>
 
-          {/* Contact / Inquiry Form */}
-          <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">Service Inquiry</CardTitle>
-              <CardDescription>Request a service or ask us anything - we'll respond within 24 hours</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => handleChange("name", e.target.value)}
-                      placeholder="Enter your full name"
-                      required
-                    />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div>
+              <Card className="border-0 shadow-lg mb-8">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Contact Information</CardTitle>
+                  <CardDescription>Get in touch with our travel experts</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Phone Numbers</h4>
+                      <p className="text-muted-foreground">+250 786 425 200</p>
+                      <p className="text-muted-foreground">+250 788 485 847</p>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleChange("email", e.target.value)}
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      value={formData.phone}
-                      onChange={(e) => handleChange("phone", e.target.value)}
-                      placeholder="+250 xxx xxx xxx"
-                      required
-                    />
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Email</h4>
+                      <p className="text-muted-foreground">brotherhoodcompany<br />200@gmail.com</p>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Service Type</Label>
-                    <Select
-                      value={formData.service}
-                      onValueChange={(value) => handleChange("service", value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="vip-transport">VIP Transportation</SelectItem>
-                        <SelectItem value="ordinary-transport">Ordinary Transportation</SelectItem>
-                        <SelectItem value="airport">Airport Pickup/Drop-off</SelectItem>
-                        <SelectItem value="hotel">Hotel Reservations</SelectItem>
-                        <SelectItem value="car-rental">Car Rental (Kigali)</SelectItem>
-                        <SelectItem value="expert-drivers">Expert Drivers (Driver Guides)</SelectItem>
-                        <SelectItem value="party">Party Organizing</SelectItem>
-                        <SelectItem value="field-car">Car for Field</SelectItem>
-                        <SelectItem value="wedding">Wedding Transportation</SelectItem>
-                        <SelectItem value="general">General Inquiry</SelectItem>
-                      </SelectContent>
-                    </Select>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Location</h4>
+                      <p className="text-muted-foreground">Kigali, Rwanda</p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="date">Preferred Date (Optional)</Label>
-                    <Input
-                      id="date"
-                      type="date"
-                      value={formData.date}
-                      onChange={(e) => handleChange("date", e.target.value)}
-                      min={new Date().toISOString().split('T')[0]}
-                    />
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Clock className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Business Hours</h4>
+                      <p className="text-muted-foreground">Monday - Sunday: 24/7</p>
+                      <p className="text-muted-foreground">Emergency Services Available</p>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="location">Location (Optional)</Label>
-                    <Input
-                      id="location"
-                      value={formData.location}
-                      onChange={(e) => handleChange("location", e.target.value)}
-                      placeholder="e.g., Kigali, Airport"
-                    />
-                  </div>
-                </div>
+                </CardContent>
+              </Card>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Your Message</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleChange("message", e.target.value)}
-                    placeholder="Tell us about your service needs, requirements, budget, or any questions you have..."
-                    rows={5}
-                    required
-                  />
-                </div>
-
-                <Button type="submit" variant="travel" size="lg" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Send Inquiry"}
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center mt-2">
-                  For tour bookings, please visit our <a href="/destinations" className="text-primary hover:underline">Destinations page</a>
+              <div className="bg-primary text-primary-foreground p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-2">TIN: 121686474</h3>
+                <p className="text-primary-foreground/90">
+                  Licensed and registered travel company providing professional transport and tourism services across Rwanda.
                 </p>
-              </form>
-            </CardContent>
-          </Card>
+              </div>
+            </div>
+
+            {/* Contact / Inquiry Form */}
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl">Service Inquiry</CardTitle>
+                <CardDescription>Request a service or ask us anything - we'll respond within 24 hours</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => handleChange("name", e.target.value)}
+                        placeholder="Enter your full name"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        placeholder="your@email.com"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        value={formData.phone}
+                        onChange={(e) => handleChange("phone", e.target.value)}
+                        placeholder="+250 xxx xxx xxx"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="service">Service Type</Label>
+                      <Select
+                        value={formData.service}
+                        onValueChange={(value) => handleChange("service", value)}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="vip-transport">VIP Transportation</SelectItem>
+                          <SelectItem value="ordinary-transport">Ordinary Transportation</SelectItem>
+                          <SelectItem value="airport">Airport Pickup/Drop-off</SelectItem>
+                          <SelectItem value="hotel">Hotel Reservations</SelectItem>
+                          <SelectItem value="car-rental">Car Rental (Kigali)</SelectItem>
+                          <SelectItem value="expert-drivers">Expert Drivers (Driver Guides)</SelectItem>
+                          <SelectItem value="party">Party Organizing</SelectItem>
+                          <SelectItem value="field-car">Car for Field</SelectItem>
+                          <SelectItem value="wedding">Wedding Transportation</SelectItem>
+                          <SelectItem value="general">General Inquiry</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="date">Preferred Date (Optional)</Label>
+                      <Input
+                        id="date"
+                        type="date"
+                        value={formData.date}
+                        onChange={(e) => handleChange("date", e.target.value)}
+                        min={new Date().toISOString().split('T')[0]}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="location">Location (Optional)</Label>
+                      <Input
+                        id="location"
+                        value={formData.location}
+                        onChange={(e) => handleChange("location", e.target.value)}
+                        placeholder="e.g., Kigali, Airport"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Your Message</Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={(e) => handleChange("message", e.target.value)}
+                      placeholder="Tell us about your service needs, requirements, budget, or any questions you have..."
+                      rows={5}
+                      required
+                    />
+                  </div>
+
+                  <Button type="submit" variant="travel" size="lg" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? "Submitting..." : "Send Inquiry"}
+                  </Button>
+
+                  <p className="text-xs text-muted-foreground text-center mt-2">
+                    For tour bookings, please visit our <a href="/destinations" className="text-primary hover:underline">Destinations page</a>
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       <AlertDialog open={showSubmitDialog} onOpenChange={setShowSubmitDialog}>
         <AlertDialogContent>

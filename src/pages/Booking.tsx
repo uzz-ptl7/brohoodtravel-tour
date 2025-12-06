@@ -181,15 +181,15 @@ ${destination.price_details}` : ''}
 _Sent from Brotherhood Travel Website_`;
 
     const whatsappUrl = `https://wa.me/250786425200?text=${encodeURIComponent(message)}`;
-    
+
     toast({
       title: "Opening WhatsApp",
       description: "Your booking request will be sent via WhatsApp.",
     });
-    
+
     // Detect mobile device for better compatibility
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
+
     if (isMobile) {
       // On mobile, use location.href to open WhatsApp app directly
       window.location.href = whatsappUrl;
