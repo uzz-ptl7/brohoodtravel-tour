@@ -1,27 +1,27 @@
 [
   {
     "id": "1",
-    "name": "Kigali City Tour",
+    "name": "Kigali City Experience",
     "location": "Kigali",
     "category": "City Tour",
-    "description": "Explore Rwanda's vibrant capital, its culture, history, and innovation. Visit the Genocide Memorial, experience local markets, and see modern Rwanda's development.",
+    "description": "Explore Rwanda's vibrant capital, its culture, history, and innovation. Visit the Genocide Memorial, experience local markets, museums, and see modern Rwanda's development and reconciliation journey.",
     "image_url": "/data/dest-kgl.jpg",
-    "duration": "1 Day",
-    "max_capacity": 20,
+    "duration": "1-2 Days",
+    "max_capacity": 25,
     "price_range": "$$",
-    "highlights": ["Genocide Memorial", "Kimironko Market", "Presidential Palace Museum", "Inema Arts Center", "City Viewpoints"]
+    "highlights": ["Genocide Memorial", "Kimironko Market", "Presidential Palace Museum", "Inema Arts Center", "City Viewpoints", "Nyamata Church", "Ntarama Church", "Campaign Against Genocide Museum"]
   },
   {
     "id": "2",
-    "name": "Lake Kivu Escape",
+    "name": "Rubavu (Gisenyi) - Lake Kivu",
     "location": "Rubavu (Gisenyi)",
     "category": "Beach & Lake",
-    "description": "Relax by the stunning Lake Kivu, one of Africa's Great Lakes. Enjoy water sports, coffee plantation tours, and breathtaking sunsets over the Congo Nile Trail.",
+    "description": "The largest town on Lake Kivu's shores offers beautiful beaches, vibrant atmosphere, and stunning sunsets. Enjoy water sports, hot springs, coffee plantation tours, and views of the Congolese mountains.",
     "image_url": "/data/dest-kivu.jpg",
     "duration": "2-3 Days",
-    "max_capacity": 15,
+    "max_capacity": 18,
     "price_range": "$$",
-    "highlights": ["Boat Cruise", "Coffee Plantation Tour", "Beach Relaxation", "Hot Springs", "Congo Nile Trail"]
+    "highlights": ["Boat Cruise", "Coffee Plantation Tour", "Beach Activities", "Hot Springs", "Water Sports", "Border Market", "Imbabazi Orphanage", "Congo Nile Trail"]
   },
   {
     "id": "3",
@@ -37,27 +37,27 @@
   },
   {
     "id": "4",
-    "name": "Volcanoes Gorilla Trek",
+    "name": "Musanze & Volcanoes National Park",
     "location": "Musanze (Volcanoes NP)",
     "category": "Wildlife Safari",
-    "description": "Encounter mountain gorillas in their natural habitat in Volcanoes National Park. A once-in-a-lifetime experience with Rwanda's most iconic wildlife.",
+    "description": "Encounter mountain gorillas in their natural habitat in Volcanoes National Park. Explore fascinating cave systems, hike Mount Bisoke to its crater lake, and experience Rwanda's most iconic wildlife and adventure activities.",
     "image_url": "/data/dest-volcanoes.jpg",
-    "duration": "2-3 Days",
-    "max_capacity": 8,
+    "duration": "2-4 Days",
+    "max_capacity": 12,
     "price_range": "$$$$",
-    "highlights": ["Mountain Gorilla Trekking", "Golden Monkey Tracking", "Dian Fossey Tomb", "Cultural Village", "Volcano Hiking"]
+    "highlights": ["Mountain Gorilla Trekking", "Golden Monkey Tracking", "Dian Fossey Tomb", "Cultural Village", "Volcano Hiking", "Musanze Caves", "Bisoke Crater Lake", "Mountain Views"]
   },
   {
     "id": "5",
-    "name": "Akagera National Park Safari",
-    "location": "Akagera National Park",
+    "name": "Akagera National Park & Eastern Rwanda",
+    "location": "Eastern Province",
     "category": "Wildlife Safari",
-    "description": "Experience Rwanda's only savannah park with the Big Five. Enjoy game drives, boat safaris on Lake Ihema, and witness diverse wildlife including lions, elephants, and rhinos.",
+    "description": "Experience Rwanda's only savannah park with the Big Five. Enjoy game drives, boat safaris on Lake Ihema, and combine with visits to Lake Muhazi and local communities for a complete eastern Rwanda adventure.",
     "image_url": "/data/dest-kgl.jpg",
-    "duration": "2-3 Days",
+    "duration": "2-4 Days",
     "max_capacity": 16,
     "price_range": "$$$",
-    "highlights": ["Big Five Game Drives", "Boat Safari", "Bird Watching", "Night Drives", "Bush Camping"]
+    "highlights": ["Big Five Game Drives", "Boat Safari", "Bird Watching", "Night Drives", "Bush Camping", "Lake Muhazi", "Community Visits", "Cultural Immersion"]
   },
   {
     "id": "6",
@@ -97,30 +97,6 @@
   },
   {
     "id": "9",
-    "name": "Rubavu Beach & Town",
-    "location": "Rubavu",
-    "category": "Beach & Lake",
-    "description": "The largest town on Lake Kivu's shores offers beautiful beaches, vibrant nightlife, and stunning views of the Congolese mountains across the lake.",
-    "image_url": "/data/dest-kivu.jpg",
-    "duration": "1-2 Days",
-    "max_capacity": 18,
-    "price_range": "$$",
-    "highlights": ["Beach Activities", "Hot Springs", "Border Market", "Water Sports", "Imbabazi Orphanage"]
-  },
-  {
-    "id": "10",
-    "name": "Musanze Town & Caves",
-    "location": "Musanze",
-    "category": "Adventure",
-    "description": "The gateway to Volcanoes National Park also offers fascinating cave systems formed by ancient volcanic activity. Explore underground passages and historical hideouts.",
-    "image_url": "/data/dest-volcanoes.jpg",
-    "duration": "1 Day",
-    "max_capacity": 15,
-    "price_range": "$",
-    "highlights": ["Musanze Caves", "Cave Exploration", "Historical Sites", "Local Markets", "Mountain Views"]
-  },
-  {
-    "id": "11",
     "name": "Rusizi District Tour",
     "location": "Rusizi (Cyangugu)",
     "category": "Cultural",
@@ -132,19 +108,7 @@
     "highlights": ["Tea Plantations", "Border Town Experience", "Local Crafts", "Lake Kivu Views", "Cultural Sites"]
   },
   {
-    "id": "12",
-    "name": "Kigali Genocide Memorial Sites",
-    "location": "Kigali",
-    "category": "Historical",
-    "description": "A profound journey through Rwanda's history. Visit multiple memorial sites to understand the 1994 genocide and Rwanda's remarkable journey of reconciliation.",
-    "image_url": "/data/dest-kgl.jpg",
-    "duration": "Half Day",
-    "max_capacity": 25,
-    "price_range": "$",
-    "highlights": ["Main Genocide Memorial", "Nyamata Church", "Ntarama Church", "Campaign Against Genocide Museum", "Peace Gardens"]
-  },
-  {
-    "id": "13",
+    "id": "10",
     "name": "Congo Nile Trail Trek",
     "location": "Lake Kivu Shoreline",
     "category": "Adventure",
@@ -156,19 +120,7 @@
     "highlights": ["Scenic Hiking", "Mountain Biking", "Tea Plantations", "Village Homestays", "Lakeside Camping"]
   },
   {
-    "id": "14",
-    "name": "Bisoke Volcano Hike",
-    "location": "Volcanoes National Park",
-    "category": "Adventure",
-    "description": "Climb Mount Bisoke (3,711m) to reach the stunning crater lake at its summit. A challenging but rewarding full-day hike with magnificent views.",
-    "image_url": "/data/dest-volcanoes.jpg",
-    "duration": "1 Day",
-    "max_capacity": 12,
-    "price_range": "$$",
-    "highlights": ["Crater Lake", "Mountain Climbing", "Panoramic Views", "Alpine Vegetation", "Photography"]
-  },
-  {
-    "id": "15",
+    "id": "11",
     "name": "Lake Muhazi Recreation",
     "location": "Eastern Province",
     "category": "Beach & Lake",
@@ -180,7 +132,7 @@
     "highlights": ["Kayaking", "Fishing", "Bird Watching", "Beach Picnics", "Water Sports"]
   },
   {
-    "id": "16",
+    "id": "12",
     "name": "Nyanza Royal Palace",
     "location": "Nyanza",
     "category": "Historical",
@@ -192,19 +144,7 @@
     "highlights": ["Royal Palace", "Traditional Architecture", "Inyambo Cattle", "Royal History", "Cultural Performances"]
   },
   {
-    "id": "17",
-    "name": "Eastern Rwanda Safari Circuit",
-    "location": "Eastern Province",
-    "category": "Wildlife Safari",
-    "description": "Combine Akagera safari with visits to Lake Muhazi and local communities. Experience wildlife, culture, and stunning landscapes in Rwanda's eastern region.",
-    "image_url": "/data/dest-kgl.jpg",
-    "duration": "3-4 Days",
-    "max_capacity": 12,
-    "price_range": "$$$",
-    "highlights": ["Akagera Safari", "Lake Muhazi", "Community Visits", "Game Drives", "Cultural Immersion"]
-  },
-  {
-    "id": "18",
+    "id": "13",
     "name": "Coffee Tour Experience",
     "location": "Various Locations",
     "category": "Cultural",
