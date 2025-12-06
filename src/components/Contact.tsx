@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -26,9 +27,15 @@ const Contact = () => {
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSubmitDialog, setShowSubmitDialog] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setShowSubmitDialog(true);
+  };
+
+  const handleEmailSubmit = async () => {
+    setShowSubmitDialog(false);
     setIsSubmitting(true);
 
     try {
@@ -71,7 +78,68 @@ const Contact = () => {
     }
   };
 
+  const handleWhatsAppSubmit = () => {
+    setShowSubmitDialog(false);
+    
+    const message = `*SERVICE INQUIRY*
+━━━━━━━━━━━━━━━━━━━━
+
+*From:* ${formData.name}
+
+*Email:* ${formData.email}
+
+*Phone:* ${formData.phone}
+
+
+*Service Type:* ${formData.service || 'Not specified'}
+
+*Preferred Date:* ${formData.date || 'Not specified'}
+
+*Location:* ${formData.location || 'Not specified'}
+
+
+*Message:*
+
+${formData.message}
+
+
+━━━━━━━━━━━━━━━━━━━━
+
+_Sent from Brotherhood Travel Website_`;
+
+    const whatsappUrl = `https://wa.me/250786425200?text=${encodeURIComponent(message)}`;
+    
+    toast({
+      title: "Opening WhatsApp",
+      description: "Your inquiry will be sent via WhatsApp.",
+    });
+    
+    // Detect mobile device for better compatibility
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // On mobile, use location.href to open WhatsApp app directly
+      window.location.href = whatsappUrl;
+    } else {
+      // On desktop, open in new tab with proper window features
+      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (whatsappWindow) whatsappWindow.opener = null;
+    }
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      date: "",
+      location: "",
+      message: "",
+    });
+  };
+
   return (
+    <>
     <section id="contact" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -257,6 +325,32 @@ const Contact = () => {
         </div>
       </div>
     </section>
+
+      <AlertDialog open={showSubmitDialog} onOpenChange={setShowSubmitDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Choose Submission Method</AlertDialogTitle>
+            <AlertDialogDescription>
+              How would you like to submit your inquiry?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="flex-col sm:flex-row gap-2">
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleWhatsAppSubmit}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              <MessageCircle className="h-4 w-4 mr-2" />
+              WhatsApp
+            </AlertDialogAction>
+            <AlertDialogAction onClick={handleEmailSubmit}>
+              <Mail className="h-4 w-4 mr-2" />
+              Email
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
   );
 };
 

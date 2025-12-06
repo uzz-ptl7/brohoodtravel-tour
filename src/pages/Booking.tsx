@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, MapPin, Calendar, Users } from "lucide-react";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
+import { ArrowLeft, MapPin, Calendar, Users, Mail, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -33,6 +34,7 @@ const Booking = () => {
   const [destination, setDestination] = useState<Destination | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [showSubmitDialog, setShowSubmitDialog] = useState(false);
 
   const [formData, setFormData] = useState({
     customerName: "",
@@ -71,10 +73,15 @@ const Booking = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!destination) return;
+    setShowSubmitDialog(true);
+  };
 
+  const handleEmailSubmit = async () => {
+    if (!destination) return;
+    setShowSubmitDialog(false);
     setSubmitting(true);
 
     try {
@@ -106,6 +113,11 @@ const Booking = () => {
           preferredDate: "",
           message: "",
         });
+
+        // Optional: Redirect to a thank you page after a short delay
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         throw new Error("Submission failed");
       }
@@ -118,6 +130,84 @@ const Booking = () => {
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleWhatsAppSubmit = () => {
+    if (!destination) return;
+    setShowSubmitDialog(false);
+
+    const message = `*TOUR BOOKING REQUEST*
+━━━━━━━━━━━━━━━━━━━━
+
+*TOUR DETAILS*
+
+Destination: ${destination.name}
+
+Location: ${destination.location}
+
+Duration: ${destination.duration}
+
+Capacity: ${destination.max_capacity} people
+${destination.price_per_person ? `
+Price: ${destination.price_per_person} per person` : ''}
+
+
+*CUSTOMER INFORMATION*
+
+Name: ${formData.customerName}
+
+Email: ${formData.customerEmail}
+
+Phone: ${formData.customerPhone}
+
+Number of People: ${formData.numberOfPeople}
+
+Preferred Date: ${formData.preferredDate}
+
+
+*ADDITIONAL REQUESTS*
+
+${formData.message || 'None'}
+${destination.price_details ? `
+
+
+*PACKAGE INCLUDES*
+
+${destination.price_details}` : ''}
+
+
+━━━━━━━━━━━━━━━━━━━━
+
+_Sent from Brotherhood Travel Website_`;
+
+    const whatsappUrl = `https://wa.me/250786425200?text=${encodeURIComponent(message)}`;
+    
+    toast({
+      title: "Opening WhatsApp",
+      description: "Your booking request will be sent via WhatsApp.",
+    });
+    
+    // Detect mobile device for better compatibility
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // On mobile, use location.href to open WhatsApp app directly
+      window.location.href = whatsappUrl;
+    } else {
+      // On desktop, open in new tab with proper window features
+      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (whatsappWindow) whatsappWindow.opener = null;
+    }
+
+    // Reset form
+    setFormData({
+      customerName: "",
+      customerEmail: "",
+      customerPhone: "",
+      numberOfPeople: "1",
+      preferredDate: "",
+      message: "",
+    });
   };
 
   if (loading) {
@@ -322,6 +412,31 @@ const Booking = () => {
         </div>
       </main>
       <Footer />
+
+      <AlertDialog open={showSubmitDialog} onOpenChange={setShowSubmitDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Choose Submission Method</AlertDialogTitle>
+            <AlertDialogDescription>
+              How would you like to submit your booking request?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="flex-col sm:flex-row gap-2">
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleWhatsAppSubmit}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              <MessageCircle className="mr-2 h-4 w-4" />
+              WhatsApp
+            </AlertDialogAction>
+            <AlertDialogAction onClick={handleEmailSubmit}>
+              <Mail className="mr-2 h-4 w-4" />
+              Email
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
