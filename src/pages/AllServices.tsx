@@ -21,25 +21,25 @@ interface Service {
 }
 
 const AllServices = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const handleBookingClick = (index: number) => {
-    if (index === 0) {
-      // Tours & Travel goes to destinations
-      navigate('/destinations');
-    } else {
-      // Other services go to home page contact section
-      navigate('/');
-      setTimeout(() => {
-        const element = document.querySelector('#contact');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+    const handleBookingClick = (index: number) => {
+        if (index === 0) {
+            // Tours & Travel goes to destinations
+            navigate('/destinations');
+        } else {
+            // Other services go to home page contact section
+            navigate('/');
+            setTimeout(() => {
+                const element = document.querySelector('#contact');
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
         }
-      }, 100);
-    }
-  };
+    };
 
-  const allServices: Service[] = [
+    const allServices: Service[] = [
         {
             icon: MapPin,
             title: "Tours & Travel",

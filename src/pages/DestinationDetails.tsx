@@ -19,6 +19,8 @@ interface Destination {
   duration: string;
   max_capacity: number;
   highlights: string[];
+  price_per_person?: string;
+  price_details?: string;
 }
 
 const DestinationDetails = () => {
@@ -151,6 +153,16 @@ const DestinationDetails = () => {
               <div className="lg:col-span-1">
                 <Card className="border-0 shadow-lg sticky top-8">
                   <CardContent className="p-6">
+                    {destination.price_per_person && (
+                      <div className="mb-6 pb-6 border-b">
+                        <div className="text-center">
+                          <p className="text-sm text-muted-foreground mb-2">From</p>
+                          <p className="text-4xl font-bold text-primary mb-2">{destination.price_per_person}</p>
+                          <p className="text-sm text-muted-foreground">per person</p>
+                        </div>
+                      </div>
+                    )}
+                    
                     <div className="space-y-4 mb-6">
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Duration:</span>
@@ -160,10 +172,12 @@ const DestinationDetails = () => {
                         <span className="text-muted-foreground">Max Group:</span>
                         <span className="font-medium">{destination.max_capacity} people</span>
                       </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Includes:</span>
-                        <span className="font-medium">Guide & Transport</span>
-                      </div>
+                      {destination.price_details && (
+                        <div className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">Includes:</span>
+                          <span className="font-medium text-right">{destination.price_details}</span>
+                        </div>
+                      )}
                     </div>
 
                     <Button
@@ -179,7 +193,15 @@ const DestinationDetails = () => {
                       variant="outline"
                       size="lg"
                       className="w-full"
-                      onClick={() => navigate('/#contact')}
+                      onClick={() => {
+                        navigate('/');
+                        setTimeout(() => {
+                          const element = document.querySelector('#contact');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 100);
+                      }}
                     >
                       Contact Us
                     </Button>

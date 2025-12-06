@@ -9,6 +9,8 @@
     "duration": "1-2 Days",
     "max_capacity": 25,
     "price_range": "$$",
+    "price_per_person": "$150",
+    "price_details": "Includes guide, transport, entrance fees",
     "highlights": ["Genocide Memorial", "Kimironko Market", "Presidential Palace Museum", "Inema Arts Center", "City Viewpoints", "Nyamata Church", "Ntarama Church", "Campaign Against Genocide Museum"]
   },
   {
@@ -21,6 +23,8 @@
     "duration": "2-3 Days",
     "max_capacity": 18,
     "price_range": "$$",
+    "price_per_person": "$280",
+    "price_details": "Per person for 2-3 days package",
     "highlights": ["Boat Cruise", "Coffee Plantation Tour", "Beach Activities", "Hot Springs", "Water Sports", "Border Market", "Imbabazi Orphanage", "Congo Nile Trail"]
   },
   {
@@ -33,6 +37,8 @@
     "duration": "2-3 Days",
     "max_capacity": 12,
     "price_range": "$$$",
+    "price_per_person": "$650",
+    "price_details": "Includes chimp permit, guide, transport, accommodation",
     "highlights": ["Canopy Walkway", "Chimpanzee Trekking", "Waterfall Hikes", "Bird Watching", "Tea Plantation Tours"]
   },
   {
@@ -45,6 +51,8 @@
     "duration": "2-4 Days",
     "max_capacity": 12,
     "price_range": "$$$$",
+    "price_per_person": "$2,500",
+    "price_details": "Includes gorilla permit ($1,500), guide, transport, accommodation",
     "highlights": ["Mountain Gorilla Trekking", "Golden Monkey Tracking", "Dian Fossey Tomb", "Cultural Village", "Volcano Hiking", "Musanze Caves", "Bisoke Crater Lake", "Mountain Views"]
   },
   {
@@ -57,6 +65,8 @@
     "duration": "2-4 Days",
     "max_capacity": 16,
     "price_range": "$$$",
+    "price_per_person": "$750",
+    "price_details": "Includes park fees, game drives, boat safari, accommodation",
     "highlights": ["Big Five Game Drives", "Boat Safari", "Bird Watching", "Night Drives", "Bush Camping", "Lake Muhazi", "Community Visits", "Cultural Immersion"]
   },
   {
@@ -69,6 +79,8 @@
     "duration": "1-2 Days",
     "max_capacity": 12,
     "price_range": "$$",
+    "price_per_person": "$200",
+    "price_details": "Includes boat trips, kayaking, guide, transport",
     "highlights": ["Napoleon Island", "Kayaking", "Bat Caves", "Beach Walks", "Local Fishing Villages"]
   },
   {
@@ -81,6 +93,8 @@
     "duration": "1 Day",
     "max_capacity": 20,
     "price_range": "$",
+    "price_per_person": "$120",
+    "price_details": "Includes guide, transport, museum entrance fees",
     "highlights": ["National Museum", "King's Palace", "Ethnographic Museum", "Traditional Dance", "University Town"]
   },
   {
@@ -93,6 +107,8 @@
     "duration": "1-2 Days",
     "max_capacity": 10,
     "price_range": "$$",
+    "price_per_person": "$450",
+    "price_details": "Includes chimp permit, guide, transport",
     "highlights": ["Chimpanzee Tracking", "Forest Walks", "Bird Watching", "Conservation Projects", "Waterfall Trails"]
   },
   {
@@ -105,6 +121,8 @@
     "duration": "1 Day",
     "max_capacity": 12,
     "price_range": "$",
+    "price_per_person": "$100",
+    "price_details": "Includes guide, transport, tea plantation tour",
     "highlights": ["Tea Plantations", "Border Town Experience", "Local Crafts", "Lake Kivu Views", "Cultural Sites"]
   },
   {
@@ -117,6 +135,8 @@
     "duration": "3-5 Days",
     "max_capacity": 8,
     "price_range": "$$$",
+    "price_per_person": "$850",
+    "price_details": "Per person for 3-5 days, includes guide, bike rental, homestays, meals",
     "highlights": ["Scenic Hiking", "Mountain Biking", "Tea Plantations", "Village Homestays", "Lakeside Camping"]
   },
   {
@@ -129,6 +149,8 @@
     "duration": "1 Day",
     "max_capacity": 20,
     "price_range": "$",
+    "price_per_person": "$80",
+    "price_details": "Includes transport, water activities, picnic lunch",
     "highlights": ["Kayaking", "Fishing", "Bird Watching", "Beach Picnics", "Water Sports"]
   },
   {
@@ -141,6 +163,8 @@
     "duration": "Half Day",
     "max_capacity": 30,
     "price_range": "$",
+    "price_per_person": "$90",
+    "price_details": "Includes guide, transport, palace entrance",
     "highlights": ["Royal Palace", "Traditional Architecture", "Inyambo Cattle", "Royal History", "Cultural Performances"]
   },
   {
@@ -153,6 +177,8 @@
     "duration": "Half Day",
     "max_capacity": 15,
     "price_range": "$",
+    "price_per_person": "$70",
+    "price_details": "Includes plantation tour, tasting, guide, transport",
     "highlights": ["Coffee Plantations", "Bean Picking", "Roasting Process", "Coffee Tasting", "Farm Tours"]
   }
 ]

@@ -21,6 +21,8 @@ interface Destination {
   max_capacity: number;
   duration: string;
   image_url?: string;
+  price_per_person?: string;
+  price_details?: string;
 }
 
 const Booking = () => {
@@ -270,6 +272,17 @@ const Booking = () => {
                 <CardDescription>Review your trip details</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
+                {destination.price_per_person && (
+                  <div className="bg-primary/10 rounded-lg p-6 text-center mb-6">
+                    <p className="text-sm text-muted-foreground mb-2">Starting from</p>
+                    <p className="text-4xl font-bold text-primary mb-1">{destination.price_per_person}</p>
+                    <p className="text-sm text-muted-foreground">per person</p>
+                    {destination.price_details && (
+                      <p className="text-xs text-muted-foreground mt-3 italic">{destination.price_details}</p>
+                    )}
+                  </div>
+                )}
+                
                 <div>
                   <h3 className="text-xl font-bold text-foreground mb-2">{destination.name}</h3>
                   <div className="flex items-center text-muted-foreground mb-4">

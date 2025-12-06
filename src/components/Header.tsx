@@ -11,7 +11,7 @@ const Header = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    
+
     if (location.pathname === '/') {
       // Already on home page, just scroll to section
       const element = document.querySelector(section);
@@ -82,10 +82,10 @@ const Header = () => {
             </a>
             <a
               href="/about"
-              onClick={(e) => { 
-                e.preventDefault(); 
-                navigate('/about'); 
-                setMobileMenuOpen(false); 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/about');
+                setMobileMenuOpen(false);
                 setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
               }}
               className="text-foreground hover:text-primary transition-colors cursor-pointer"
@@ -144,9 +144,9 @@ const Header = () => {
             </a>
             <a
               href="/about"
-              onClick={(e) => { 
-                e.preventDefault(); 
-                navigate('/about'); 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/about');
                 setMobileMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}

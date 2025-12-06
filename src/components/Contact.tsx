@@ -16,6 +16,8 @@ const Contact = () => {
     email: "",
     phone: "",
     service: "",
+    date: "",
+    location: "",
     message: "",
   });
 
@@ -51,6 +53,8 @@ const Contact = () => {
           email: "",
           phone: "",
           service: "",
+          date: "",
+          location: "",
           message: "",
         });
       } else {
@@ -138,11 +142,11 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact / Booking Form */}
+          {/* Contact / Inquiry Form */}
           <Card className="border-0 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl">Book Your Service</CardTitle>
-              <CardDescription>Fill out this form and we'll get back to you within 24 hours</CardDescription>
+              <CardTitle className="text-2xl">Service Inquiry</CardTitle>
+              <CardDescription>Request a service or ask us anything - we'll respond within 24 hours</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
@@ -191,33 +195,62 @@ const Contact = () => {
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="tours">Tours and Travel</SelectItem>
                         <SelectItem value="vip-transport">VIP Transportation</SelectItem>
-                        <SelectItem value="airport">Airport Pickup/Dropping</SelectItem>
+                        <SelectItem value="ordinary-transport">Ordinary Transportation</SelectItem>
+                        <SelectItem value="airport">Airport Pickup/Drop-off</SelectItem>
                         <SelectItem value="hotel">Hotel Reservations</SelectItem>
-                        <SelectItem value="car-rental">Car Rental Services</SelectItem>
-                        <SelectItem value="expert-drivers">Expert Drivers</SelectItem>
-                        <SelectItem value="custom">Custom Request</SelectItem>
+                        <SelectItem value="car-rental">Car Rental (Kigali)</SelectItem>
+                        <SelectItem value="expert-drivers">Expert Drivers (Driver Guides)</SelectItem>
+                        <SelectItem value="party">Party Organizing</SelectItem>
+                        <SelectItem value="field-car">Car for Field</SelectItem>
+                        <SelectItem value="wedding">Wedding Transportation</SelectItem>
+                        <SelectItem value="general">General Inquiry</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                 </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="date">Preferred Date (Optional)</Label>
+                    <Input
+                      id="date"
+                      type="date"
+                      value={formData.date}
+                      onChange={(e) => handleChange("date", e.target.value)}
+                      min={new Date().toISOString().split('T')[0]}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="location">Location (Optional)</Label>
+                    <Input
+                      id="location"
+                      value={formData.location}
+                      onChange={(e) => handleChange("location", e.target.value)}
+                      placeholder="e.g., Kigali, Airport"
+                    />
+                  </div>
+                </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">Your Message</Label>
                   <Textarea
                     id="message"
                     value={formData.message}
                     onChange={(e) => handleChange("message", e.target.value)}
-                    placeholder="Tell us about your travel needs, dates, destination, and any special requirements..."
-                    rows={4}
+                    placeholder="Tell us about your service needs, requirements, budget, or any questions you have..."
+                    rows={5}
                     required
                   />
                 </div>
 
                 <Button type="submit" variant="travel" size="lg" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Submit Message"}
+                  {isSubmitting ? "Submitting..." : "Send Inquiry"}
                 </Button>
+                
+                <p className="text-xs text-muted-foreground text-center mt-2">
+                  For tour bookings, please visit our <a href="/destinations" className="text-primary hover:underline">Destinations page</a>
+                </p>
               </form>
             </CardContent>
           </Card>
