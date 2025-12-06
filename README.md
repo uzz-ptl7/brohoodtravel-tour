@@ -171,7 +171,7 @@ npm run build
 
 ## 📞 Contact Information
 
-- **Phone**: +250 786 425 200, +250 788 485 847
+- **Phone**: +250 786 425 200, +250 788 533 614
 - **Email**: brotherhoodcompany200@gmail.com
 - **Location**: Kigali, Rwanda
 - **TIN**: 121686474

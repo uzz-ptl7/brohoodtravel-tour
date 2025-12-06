@@ -7,7 +7,7 @@ interface WhatsAppChatProps {
 }
 
 const WhatsAppChat = ({
-    phoneNumber = "250738019704",
+    phoneNumber = "250786425200",
     companyName = "Brotherhood Company",
     greetingMessage = "Hi! How can we help you today? 😊"
 }: WhatsAppChatProps) => {

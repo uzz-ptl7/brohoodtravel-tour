@@ -251,7 +251,7 @@ const AllDestinations = () => {
                                     variant="travel"
                                     size="lg"
                                     onClick={() => {
-                                        const whatsappUrl = `https://wa.me/250738019704?text=${encodeURIComponent("Hi! I'm interested in a custom destination not listed on your website.")}`;
+                                        const whatsappUrl = `https://wa.me/250786425200?text=${encodeURIComponent("Hi! I'm interested in a custom destination not listed on your website.")}`;
                                         window.open(whatsappUrl, "_blank");
                                     }}
                                 >

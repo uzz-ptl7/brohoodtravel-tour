@@ -134,70 +134,51 @@ const Booking = () => {
 
   const handleWhatsAppSubmit = () => {
     if (!destination) return;
-    setShowSubmitDialog(false);
+    const phoneNumber = "250786425200"; // Unified WhatsApp number
 
-    const message = `*TOUR BOOKING REQUEST*
-━━━━━━━━━━━━━━━━━━━━
+    const message = `TOUR BOOKING REQUEST
 
-*TOUR DETAILS*
-
-Destination: ${destination.name}
-
+TOUR: ${destination.name}
 Location: ${destination.location}
-
 Duration: ${destination.duration}
-
 Capacity: ${destination.max_capacity} people
-${destination.price_per_person ? `
-Price: ${destination.price_per_person} per person` : ''}
-
-
-*CUSTOMER INFORMATION*
-
+${destination.price_per_person ? `Price: ${destination.price_per_person} per person
+` : ''}
+CUSTOMER:
 Name: ${formData.customerName}
-
 Email: ${formData.customerEmail}
-
 Phone: ${formData.customerPhone}
+People: ${formData.numberOfPeople}
+Date: ${formData.preferredDate}
 
-Number of People: ${formData.numberOfPeople}
-
-Preferred Date: ${formData.preferredDate}
-
-
-*ADDITIONAL REQUESTS*
-
-${formData.message || 'None'}
+Message: ${formData.message || 'None'}
 ${destination.price_details ? `
+Includes: ${destination.price_details}` : ''}`;
 
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const mobileUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const desktopAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const desktopWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
-*PACKAGE INCLUDES*
+    if (isMobile) {
+      console.log('Opening WhatsApp (mobile):', mobileUrl, 'len=', message.length);
+      window.open(mobileUrl, '_blank');
+    } else {
+      console.log('Trying WhatsApp Desktop app first:', desktopAppUrl, 'len=', message.length);
+      // Try opening desktop app; if it doesn't respond, fallback to web
+      window.location.href = desktopAppUrl;
+      setTimeout(() => {
+        console.log('Fallback to WhatsApp Web:', desktopWebUrl);
+        window.open(desktopWebUrl, '_blank');
+      }, 1500);
+    }
 
-${destination.price_details}` : ''}
-
-
-━━━━━━━━━━━━━━━━━━━━
-
-_Sent from Brotherhood Travel Website_`;
-
-    const whatsappUrl = `https://wa.me/250786425200?text=${encodeURIComponent(message)}`;
+    setShowSubmitDialog(false);
 
     toast({
       title: "Opening WhatsApp",
       description: "Your booking request will be sent via WhatsApp.",
     });
-
-    // Detect mobile device for better compatibility
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      // On mobile, use location.href to open WhatsApp app directly
-      window.location.href = whatsappUrl;
-    } else {
-      // On desktop, open in new tab with proper window features
-      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      if (whatsappWindow) whatsappWindow.opener = null;
-    }
 
     // Reset form
     setFormData({
@@ -423,17 +404,17 @@ _Sent from Brotherhood Travel Website_`;
           </AlertDialogHeader>
           <AlertDialogFooter className="flex-col sm:flex-row gap-2">
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
+            <Button
               onClick={handleWhatsAppSubmit}
               className="bg-green-600 hover:bg-green-700"
             >
               <MessageCircle className="mr-2 h-4 w-4" />
               WhatsApp
-            </AlertDialogAction>
-            <AlertDialogAction onClick={handleEmailSubmit}>
+            </Button>
+            <Button onClick={handleEmailSubmit}>
               <Mail className="mr-2 h-4 w-4" />
               Email
-            </AlertDialogAction>
+            </Button>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

@@ -79,52 +79,43 @@ const Contact = () => {
   };
 
   const handleWhatsAppSubmit = () => {
+    const phoneNumber = "250786425200"; // Unified WhatsApp number
+    const message = `SERVICE INQUIRY
+
+From: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Service: ${formData.service || 'Not specified'}
+Date: ${formData.date || 'Not specified'}
+Location: ${formData.location || 'Not specified'}
+
+Message:
+${formData.message}`;
+
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const mobileUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const desktopAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const desktopWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+    if (isMobile) {
+      console.log('Opening WhatsApp (mobile):', mobileUrl, 'len=', message.length);
+      window.open(mobileUrl, '_blank');
+    } else {
+      console.log('Trying WhatsApp Desktop app first:', desktopAppUrl, 'len=', message.length);
+      window.location.href = desktopAppUrl;
+      setTimeout(() => {
+        console.log('Fallback to WhatsApp Web:', desktopWebUrl);
+        window.open(desktopWebUrl, '_blank');
+      }, 1500);
+    }
+
     setShowSubmitDialog(false);
-
-    const message = `*SERVICE INQUIRY*
-━━━━━━━━━━━━━━━━━━━━
-
-*From:* ${formData.name}
-
-*Email:* ${formData.email}
-
-*Phone:* ${formData.phone}
-
-
-*Service Type:* ${formData.service || 'Not specified'}
-
-*Preferred Date:* ${formData.date || 'Not specified'}
-
-*Location:* ${formData.location || 'Not specified'}
-
-
-*Message:*
-
-${formData.message}
-
-
-━━━━━━━━━━━━━━━━━━━━
-
-_Sent from Brotherhood Travel Website_`;
-
-    const whatsappUrl = `https://wa.me/250786425200?text=${encodeURIComponent(message)}`;
 
     toast({
       title: "Opening WhatsApp",
       description: "Your inquiry will be sent via WhatsApp.",
     });
-
-    // Detect mobile device for better compatibility
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      // On mobile, use location.href to open WhatsApp app directly
-      window.location.href = whatsappUrl;
-    } else {
-      // On desktop, open in new tab with proper window features
-      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      if (whatsappWindow) whatsappWindow.opener = null;
-    }
 
     // Reset form
     setFormData({
@@ -165,7 +156,7 @@ _Sent from Brotherhood Travel Website_`;
                     <div>
                       <h4 className="font-semibold text-foreground">Phone Numbers</h4>
                       <p className="text-muted-foreground">+250 786 425 200</p>
-                      <p className="text-muted-foreground">+250 788 485 847</p>
+                      <p className="text-muted-foreground">+250 788 533 614</p>
                     </div>
                   </div>
 
@@ -336,17 +327,17 @@ _Sent from Brotherhood Travel Website_`;
           </AlertDialogHeader>
           <AlertDialogFooter className="flex-col sm:flex-row gap-2">
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
+            <Button
               onClick={handleWhatsAppSubmit}
               className="bg-green-600 hover:bg-green-700"
             >
               <MessageCircle className="h-4 w-4 mr-2" />
               WhatsApp
-            </AlertDialogAction>
-            <AlertDialogAction onClick={handleEmailSubmit}>
+            </Button>
+            <Button onClick={handleEmailSubmit}>
               <Mail className="h-4 w-4 mr-2" />
               Email
-            </AlertDialogAction>
+            </Button>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
