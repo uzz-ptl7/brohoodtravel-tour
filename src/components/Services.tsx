@@ -9,6 +9,19 @@ import vehicleFleet3 from "@/assets/vehicle-fleet3.jpg";
 const Services = () => {
   const navigate = useNavigate();
 
+  const handleBookingClick = (serviceTitle: string) => {
+    if (serviceTitle === "Tours & Travel") {
+      // Tours & Travel goes to destinations
+      navigate('/destinations');
+    } else {
+      // Other services go to contact section
+      const element = document.querySelector('#contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   const services = [
     {
       icon: MapPin,
@@ -146,7 +159,7 @@ const Services = () => {
                   </CardHeader>
 
                   <CardContent>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-4">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-muted-foreground">
                           <ArrowRight className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
@@ -154,6 +167,13 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
+                    <Button
+                      className="w-full bg-primary hover:bg-primary/90"
+                      onClick={() => handleBookingClick(service.title)}
+                    >
+                      {service.title === "Tours & Travel" ? 'Explore Destinations' : 'Book Now'}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
                   </CardContent>
                 </div>
               </div>

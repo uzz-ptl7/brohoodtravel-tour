@@ -1,9 +1,34 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    
+    if (location.pathname === '/') {
+      // Already on home page, just scroll to section
+      const element = document.querySelector(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home page first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -43,25 +68,34 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             <a
               href="/#services"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => handleNavClick(e, '#services')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Services
             </a>
             <a
               href="/#destinations"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => handleNavClick(e, '#destinations')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Destinations
             </a>
             <a
               href="/about"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                navigate('/about'); 
+                setMobileMenuOpen(false); 
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               About
             </a>
             <a
               href="/#contact"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Contact
             </a>
@@ -96,25 +130,34 @@ const Header = () => {
           <div className="lg:hidden mt-4 flex flex-col space-y-4">
             <a
               href="/#services"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => handleNavClick(e, '#services')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Services
             </a>
             <a
               href="/#destinations"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => handleNavClick(e, '#destinations')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Destinations
             </a>
             <a
               href="/about"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                navigate('/about'); 
+                setMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               About
             </a>
             <a
               href="/#contact"
-              className="text-foreground hover:text-primary transition-colors"
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Contact
             </a>

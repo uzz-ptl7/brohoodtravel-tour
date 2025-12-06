@@ -11,6 +11,16 @@ import rwandaimage from '../assets/destination-rwanda.jpg';
 const About = () => {
   const navigate = useNavigate();
 
+  const handleContactClick = () => {
+    navigate('/');
+    setTimeout(() => {
+      const element = document.querySelector('#contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   const stats = [
     { label: "Years of Experience", value: "1+", icon: Award },
     { label: "Happy Customers", value: "20+", icon: Users },
@@ -71,7 +81,7 @@ const About = () => {
               Your trusted partner for unforgettable travel experiences across Rwanda and the Great Lakes region.
               We've been creating memories and connecting cultures since 2014.
             </p>
-            <Button variant="travel" size="lg" onClick={() => navigate('/#contact')}>
+            <Button variant="travel" size="lg" onClick={handleContactClick}>
               Start Your Journey
             </Button>
           </div>
@@ -215,7 +225,7 @@ const About = () => {
               <Button
                 variant="secondary"
                 size="lg"
-                onClick={() => navigate('/#contact')}
+                onClick={handleContactClick}
               >
                 Get In Touch
               </Button>

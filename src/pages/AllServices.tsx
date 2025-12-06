@@ -21,9 +21,25 @@ interface Service {
 }
 
 const AllServices = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const allServices: Service[] = [
+  const handleBookingClick = (index: number) => {
+    if (index === 0) {
+      // Tours & Travel goes to destinations
+      navigate('/destinations');
+    } else {
+      // Other services go to home page contact section
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector('#contact');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
+  const allServices: Service[] = [
         {
             icon: MapPin,
             title: "Tours & Travel",
@@ -182,7 +198,7 @@ const AllServices = () => {
                                         </CardHeader>
 
                                         <CardContent>
-                                            <ul className="space-y-2">
+                                            <ul className="space-y-2 mb-4">
                                                 {service.features.map((feature, idx) => (
                                                     <li key={idx} className="flex items-center text-sm text-muted-foreground">
                                                         <ArrowRight className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
@@ -190,6 +206,13 @@ const AllServices = () => {
                                                     </li>
                                                 ))}
                                             </ul>
+                                            <Button
+                                                className="w-full bg-primary hover:bg-primary/90"
+                                                onClick={() => handleBookingClick(index)}
+                                            >
+                                                {index === 0 ? 'Explore Destinations' : 'Book Now'}
+                                                <ArrowRight className="ml-2 h-4 w-4" />
+                                            </Button>
                                         </CardContent>
                                     </div>
                                 </div>
@@ -207,7 +230,15 @@ const AllServices = () => {
                         </p>
                         <Button
                             size="lg"
-                            onClick={() => navigate("/#contact")}
+                            onClick={() => {
+                                navigate('/');
+                                setTimeout(() => {
+                                    const element = document.querySelector('#contact');
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }, 100);
+                            }}
                             className="bg-primary hover:bg-primary/90"
                         >
                             Contact Us Today
