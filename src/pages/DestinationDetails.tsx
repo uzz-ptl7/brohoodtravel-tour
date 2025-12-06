@@ -162,7 +162,7 @@ const DestinationDetails = () => {
                         </div>
                       </div>
                     )}
-                    
+
                     <div className="space-y-4 mb-6">
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Duration:</span>

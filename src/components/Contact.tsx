@@ -247,7 +247,7 @@ const Contact = () => {
                 <Button type="submit" variant="travel" size="lg" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? "Submitting..." : "Send Inquiry"}
                 </Button>
-                
+
                 <p className="text-xs text-muted-foreground text-center mt-2">
                   For tour bookings, please visit our <a href="/destinations" className="text-primary hover:underline">Destinations page</a>
                 </p>

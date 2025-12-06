@@ -282,7 +282,7 @@ const Booking = () => {
                     )}
                   </div>
                 )}
-                
+
                 <div>
                   <h3 className="text-xl font-bold text-foreground mb-2">{destination.name}</h3>
                   <div className="flex items-center text-muted-foreground mb-4">
