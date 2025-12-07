@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -39,7 +39,11 @@ interface Destination {
 const DestinationDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [destination, setDestination] = useState<Destination | null>(null);
+  
+  // Check if user came from AllDestinations page
+  const fromAllDestinations = location.state?.from === '/destinations';
 
   useEffect(() => {
     fetch("/data/destinations.json")
@@ -101,10 +105,10 @@ const DestinationDetails = () => {
               variant="outline"
               size="sm"
               className="mb-4 bg-white/10 text-white border-white/20 hover:bg-white/80"
-              onClick={() => navigate('/')}
+              onClick={() => navigate(fromAllDestinations ? '/destinations' : '/')}
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
+              {fromAllDestinations ? 'Back to Destinations' : 'Back to Home'}
             </Button>
             <h1 className="text-4xl md:text-6xl font-bold">{destination.name}</h1>
             <div className="flex items-center text-lg text-white/90">

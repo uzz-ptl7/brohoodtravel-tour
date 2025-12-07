@@ -242,7 +242,7 @@ const AllDestinations = () => {
                                             variant="travel"
                                             size="sm"
                                             className="w-full"
-                                            onClick={() => navigate(`/destination/${destination.id}`)}
+                                            onClick={() => navigate(`/destination/${destination.id}`, { state: { from: '/destinations' } })}
                                         >
                                             View Details
                                         </Button>
