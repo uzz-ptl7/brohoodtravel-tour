@@ -158,19 +158,13 @@ Includes: ${destination.price_details}` : ''}`;
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const mobileUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     const desktopAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    const desktopWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
+    const urlToOpen = isMobile ? mobileUrl : desktopAppUrl;
+    console.log('Opening WhatsApp (app):', urlToOpen, 'len=', message.length);
+    // Use location.href for app protocols; window.open for web URLs
     if (isMobile) {
-      console.log('Opening WhatsApp (mobile):', mobileUrl, 'len=', message.length);
-      window.open(mobileUrl, '_blank');
+      window.open(urlToOpen, '_blank');
     } else {
-      console.log('Trying WhatsApp Desktop app first:', desktopAppUrl, 'len=', message.length);
-      // Try opening desktop app; if it doesn't respond, fallback to web
-      window.location.href = desktopAppUrl;
-      setTimeout(() => {
-        console.log('Fallback to WhatsApp Web:', desktopWebUrl);
-        window.open(desktopWebUrl, '_blank');
-      }, 1500);
+      window.location.href = urlToOpen;
     }
 
     setShowSubmitDialog(false);

@@ -2,9 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Car, Plane, Hotel, Key, Users, MapPin, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import vehicleFleet1 from "@/assets/vehicle-fleet1.jpg";
-import vehicleFleet2 from "@/assets/vehicle-fleet2.jpg";
-import vehicleFleet3 from "@/assets/vehicle-fleet3.jpg";
+// Use local assets provided in src/assets
+import toursImg from "@/assets/toursandtravels.jpg";
+import vipImg from "@/assets/viptransport.jpg";
+import ordinaryImg from "@/assets/vehicle-fleet.jpg"; // best remaining fleet image for ordinary transport
+import airportImg from "@/assets/airport.jpg";
+import hotelImg from "@/assets/hotelreservation.jpg";
+import rentalImg from "@/assets/carrental.jpg";
+import driversImg from "@/assets/expertdriver.jpg";
+import partyImg from "@/assets/eventplanning.jpg";
+import fieldImg from "@/assets/carforfield.jpg";
+import weddingImg from "@/assets/weddingtransport.jpg";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -28,7 +36,7 @@ const Services = () => {
       title: "Tours & Travel",
       description: "Explore Rwanda and neighboring countries with our expertly guided tours covering all major attractions.",
       features: ["Country-wide Tours", "Cross-border Travel", "Cultural Experiences", "Custom Itineraries"],
-      image: vehicleFleet1,
+      image: toursImg,
       price: null,
     },
     {
@@ -36,7 +44,7 @@ const Services = () => {
       title: "VIP Transportation",
       description: "Premium vehicle transportation services with professional drivers for your comfort and safety.",
       features: ["Luxury Vehicles", "Professional Drivers", "24/7 Availability", "City Tour Available"],
-      image: vehicleFleet2,
+      image: vipImg,
       price: "$150",
       priceLabel: "City Tour",
     },
@@ -45,7 +53,7 @@ const Services = () => {
       title: "Ordinary Transportation",
       description: "Affordable and reliable transportation services for comfortable city tours and local travel.",
       features: ["Comfortable Vehicles", "Experienced Drivers", "City Tours", "Flexible Schedules"],
-      image: vehicleFleet3,
+      image: ordinaryImg,
       price: "$120",
       priceLabel: "City Tour",
     },
@@ -54,7 +62,7 @@ const Services = () => {
       title: "Airport Pickup & Drop-off",
       description: "Reliable airport transfer services ensuring you arrive on time with stress-free pickups and drop-offs.",
       features: ["Meet & Greet Service", "Flight Tracking", "Luggage Assistance", "On-time Guarantee"],
-      image: vehicleFleet1,
+      image: airportImg,
       price: "$70",
     },
     {
@@ -62,7 +70,7 @@ const Services = () => {
       title: "Hotel Reservations",
       description: "Book the best accommodations across Rwanda. We partner with top hotels for your comfort.",
       features: ["Best Rate Guarantee", "Wide Selection", "Instant Confirmation", "Special Packages"],
-      image: vehicleFleet2,
+      image: hotelImg,
       price: null,
     },
     {
@@ -70,7 +78,7 @@ const Services = () => {
       title: "Car Rental (Kigali)",
       description: "Self-drive or chauffeur-driven car rental services with a modern fleet of well-maintained vehicles.",
       features: ["Modern Fleet", "Flexible Rental", "Insurance Included", "Provinces & Foreign Countries: Negotiable"],
-      image: vehicleFleet3,
+      image: rentalImg,
       price: "$150",
     },
     {
@@ -78,7 +86,7 @@ const Services = () => {
       title: "Expert Drivers (Driver Guides)",
       description: "Connect with experienced, licensed drivers who know the roads and destinations intimately.",
       features: ["Licensed Professionals", "Local Knowledge", "Multilingual", "Safety Certified"],
-      image: vehicleFleet1,
+      image: driversImg,
       price: "Negotiable",
       priceLabel: "Depends on requirements",
     },
@@ -87,7 +95,7 @@ const Services = () => {
       title: "Party Organizing",
       description: "Professional event planning and coordination services to make your celebrations memorable.",
       features: ["Event Planning", "Venue Coordination", "Transportation Logistics", "Custom Packages"],
-      image: vehicleFleet2,
+      image: partyImg,
       price: "Negotiable",
     },
     {
@@ -95,7 +103,7 @@ const Services = () => {
       title: "Car for Field",
       description: "Specialized vehicles for field work, research trips, and off-road adventures.",
       features: ["Rugged Vehicles", "Field-Ready", "GPS Equipped", "Flexible Duration"],
-      image: vehicleFleet3,
+      image: fieldImg,
       price: "Negotiable",
     },
     {
@@ -103,7 +111,7 @@ const Services = () => {
       title: "Wedding Transportation",
       description: "Elegant and reliable transportation services to make your special day perfect.",
       features: ["Luxury Vehicles", "Decorated Options", "Professional Service", "Timely Coordination"],
-      image: vehicleFleet1,
+      image: weddingImg,
       price: "Negotiable",
     }
   ];

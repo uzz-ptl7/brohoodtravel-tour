@@ -96,18 +96,12 @@ ${formData.message}`;
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const mobileUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     const desktopAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    const desktopWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
+    const urlToOpen = isMobile ? mobileUrl : desktopAppUrl;
+    console.log('Opening WhatsApp (app):', urlToOpen, 'len=', message.length);
     if (isMobile) {
-      console.log('Opening WhatsApp (mobile):', mobileUrl, 'len=', message.length);
-      window.open(mobileUrl, '_blank');
+      window.open(urlToOpen, '_blank');
     } else {
-      console.log('Trying WhatsApp Desktop app first:', desktopAppUrl, 'len=', message.length);
-      window.location.href = desktopAppUrl;
-      setTimeout(() => {
-        console.log('Fallback to WhatsApp Web:', desktopWebUrl);
-        window.open(desktopWebUrl, '_blank');
-      }, 1500);
+      window.location.href = urlToOpen;
     }
 
     setShowSubmitDialog(false);
@@ -134,9 +128,9 @@ ${formData.message}`;
       <section id="contact" className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Get In Touch</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Book a Service / Have an Inquiry</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Ready to start your journey? Contact us for personalized travel solutions and competitive pricing.
+              Tell us what you need — bookings, transport, reservations, or any questions. We’ll get back to you quickly.
             </p>
           </div>
 
@@ -204,8 +198,8 @@ ${formData.message}`;
             {/* Contact / Inquiry Form */}
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl">Service Inquiry</CardTitle>
-                <CardDescription>Request a service or ask us anything - we'll respond within 24 hours</CardDescription>
+                <CardTitle className="text-2xl">Book a Service / Inquiry</CardTitle>
+                <CardDescription>Request a service or ask anything — we respond within 24 hours</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
@@ -281,13 +275,16 @@ ${formData.message}`;
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="location">Location (Optional)</Label>
+                      <Label htmlFor="location">Service Location (Optional)</Label>
                       <Input
                         id="location"
                         value={formData.location}
                         onChange={(e) => handleChange("location", e.target.value)}
-                        placeholder="e.g., Kigali, Airport"
+                        placeholder="Where do you need the service? e.g., Kigali—Kiyovu, Kigali International Airport, Hotel name"
                       />
+                      <p className="text-xs text-muted-foreground">
+                        Helps us plan routes, timing, and pricing. You can put TBD if not sure.
+                      </p>
                     </div>
                   </div>
 
@@ -304,7 +301,7 @@ ${formData.message}`;
                   </div>
 
                   <Button type="submit" variant="travel" size="lg" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Submitting..." : "Send Inquiry"}
+                    {isSubmitting ? "Submitting..." : "Submit via WhatsApp or Email"}
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center mt-2">

@@ -8,7 +8,20 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import SocialShare from "@/components/SocialShare";
-import TravelTips from "@/components/TravelTips";
+// TravelTips removed per request
+import destKgl from "@/assets/dest-kgl.jpg";
+import destKivu from "@/assets/dest-kivu.jpg";
+import destNyungwe from "@/assets/dest-nyungwe.jpg";
+import destVolcanoes from "@/assets/dest-volcanoes.jpg";
+import destRwanda from "@/assets/destination-rwanda.jpg";
+
+const imageAssetMap: Record<string, string> = {
+  "dest-kgl.jpg": destKgl,
+  "dest-kivu.jpg": destKivu,
+  "dest-nyungwe.jpg": destNyungwe,
+  "dest-volcanoes.jpg": destVolcanoes,
+  "destination-rwanda.jpg": destRwanda,
+};
 
 interface Destination {
   id: string;
@@ -74,7 +87,11 @@ const DestinationDetails = () => {
       <main>
         <div className="relative h-96 overflow-hidden">
           <img
-            src={destination.image_url}
+            src={(() => {
+              const parts = destination.image_url.split("/");
+              const file = parts[parts.length - 1];
+              return imageAssetMap[file] || destination.image_url;
+            })()}
             alt={destination.name}
             className="w-full h-full object-cover"
           />
@@ -212,8 +229,7 @@ const DestinationDetails = () => {
           </div>
         </section>
 
-        {/* Travel Tips Section */}
-        <TravelTips destinationId={destination.id} />
+        {/* Travel Tips removed */}
       </main>
 
       <Footer />
