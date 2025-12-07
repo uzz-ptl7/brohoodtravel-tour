@@ -17,16 +17,27 @@ import weddingImg from "@/assets/weddingtransport.jpg";
 const Services = () => {
   const navigate = useNavigate();
 
+  const serviceIdMap: Record<string, string> = {
+    "Tours & Travel": "tours",
+    "VIP Transportation": "vip-transport",
+    "Ordinary Transportation": "ordinary-transport",
+    "Airport Pickup & Drop-off": "airport",
+    "Hotel Reservations": "hotel",
+    "Car Rental (Kigali)": "car-rental",
+    "Expert Drivers (Driver Guides)": "expert-drivers",
+    "Party Organizing": "party",
+    "Car for Field": "field-car",
+    "Wedding Transportation": "wedding",
+  };
+
   const handleBookingClick = (serviceTitle: string) => {
     if (serviceTitle === "Tours & Travel") {
       // Tours & Travel goes to destinations
       navigate('/destinations');
     } else {
-      // Other services go to contact section
-      const element = document.querySelector('#contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      // Other services go to service booking page
+      const serviceId = serviceIdMap[serviceTitle];
+      navigate(`/service-booking/${serviceId}`);
     }
   };
 

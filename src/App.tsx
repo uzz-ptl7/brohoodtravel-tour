@@ -11,6 +11,7 @@ import Booking from "./pages/Booking";
 import About from "./pages/About";
 import AllDestinations from "./pages/AllDestinations";
 import AllServices from "./pages/AllServices";
+import ServiceBooking from "./pages/ServiceBooking";
 import WhatsAppChat from "./components/WhatsAppChat";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/booking/:id" element={<Booking />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<AllServices />} />
+            <Route path="/service-booking/:serviceId" element={<ServiceBooking />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

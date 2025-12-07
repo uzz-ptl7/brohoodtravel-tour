@@ -16,9 +16,6 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    service: "",
-    date: "",
-    location: "",
     message: "",
   });
 
@@ -59,9 +56,6 @@ const Contact = () => {
           name: "",
           email: "",
           phone: "",
-          service: "",
-          date: "",
-          location: "",
           message: "",
         });
       } else {
@@ -80,15 +74,11 @@ const Contact = () => {
 
   const handleWhatsAppSubmit = () => {
     const phoneNumber = "250786425200"; // Unified WhatsApp number
-    const message = `SERVICE INQUIRY
+    const message = `CONSULTATION / INQUIRY
 
 From: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone}
-
-Service: ${formData.service || 'Not specified'}
-Date: ${formData.date || 'Not specified'}
-Location: ${formData.location || 'Not specified'}
 
 Message:
 ${formData.message}`;
@@ -116,9 +106,6 @@ ${formData.message}`;
       name: "",
       email: "",
       phone: "",
-      service: "",
-      date: "",
-      location: "",
       message: "",
     });
   };
@@ -128,9 +115,9 @@ ${formData.message}`;
       <section id="contact" className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Book a Service / Have an Inquiry</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Consultations & Inquiries</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Tell us what you need — bookings, transport, reservations, or any questions. We’ll get back to you quickly.
+              Have questions? Need travel advice? We're here to help with any inquiries about our services.
             </p>
           </div>
 
@@ -198,8 +185,8 @@ ${formData.message}`;
             {/* Contact / Inquiry Form */}
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl">Book a Service / Inquiry</CardTitle>
-                <CardDescription>Request a service or ask anything — we respond within 24 hours</CardDescription>
+                <CardTitle className="text-2xl">Send Us an Inquiry</CardTitle>
+                <CardDescription>Ask questions or request consultation — we respond within 24 hours</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
@@ -227,65 +214,15 @@ ${formData.message}`;
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => handleChange("phone", e.target.value)}
-                        placeholder="+250 xxx xxx xxx"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="service">Service Type</Label>
-                      <Select
-                        value={formData.service}
-                        onValueChange={(value) => handleChange("service", value)}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="vip-transport">VIP Transportation</SelectItem>
-                          <SelectItem value="ordinary-transport">Ordinary Transportation</SelectItem>
-                          <SelectItem value="airport">Airport Pickup/Drop-off</SelectItem>
-                          <SelectItem value="hotel">Hotel Reservations</SelectItem>
-                          <SelectItem value="car-rental">Car Rental (Kigali)</SelectItem>
-                          <SelectItem value="expert-drivers">Expert Drivers (Driver Guides)</SelectItem>
-                          <SelectItem value="party">Party Organizing</SelectItem>
-                          <SelectItem value="field-car">Car for Field</SelectItem>
-                          <SelectItem value="wedding">Wedding Transportation</SelectItem>
-                          <SelectItem value="general">General Inquiry</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="date">Preferred Date (Optional)</Label>
-                      <Input
-                        id="date"
-                        type="date"
-                        value={formData.date}
-                        onChange={(e) => handleChange("date", e.target.value)}
-                        min={new Date().toISOString().split('T')[0]}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="location">Service Location (Optional)</Label>
-                      <Input
-                        id="location"
-                        value={formData.location}
-                        onChange={(e) => handleChange("location", e.target.value)}
-                        placeholder="Where do you need the service? e.g., Kigali—Kiyovu, Kigali International Airport, Hotel name"
-                      />
-                      <p className="text-xs text-muted-foreground">
-                        Helps us plan routes, timing, and pricing. You can put TBD if not sure.
-                      </p>
-                    </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input
+                      id="phone"
+                      value={formData.phone}
+                      onChange={(e) => handleChange("phone", e.target.value)}
+                      placeholder="+250 xxx xxx xxx"
+                      required
+                    />
                   </div>
 
                   <div className="space-y-2">
@@ -294,19 +231,39 @@ ${formData.message}`;
                       id="message"
                       value={formData.message}
                       onChange={(e) => handleChange("message", e.target.value)}
-                      placeholder="Tell us about your service needs, requirements, budget, or any questions you have..."
-                      rows={5}
+                      placeholder="Tell us what you'd like to know about our services, ask for travel advice, or any other questions..."
+                      rows={6}
                       required
                     />
                   </div>
 
                   <Button type="submit" variant="travel" size="lg" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Submitting..." : "Submit via WhatsApp or Email"}
+                    {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center mt-2">
-                    For tour bookings, please visit our <a href="/destinations" className="text-primary hover:underline">Destinations page</a>
-                  </p>
+                  <div className="text-center pt-4 border-t">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Ready to book a service or tour?
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-2 justify-center">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.location.href = '/destinations'}
+                      >
+                        Book a Tour
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.location.href = '/services'}
+                      >
+                        Book a Service
+                      </Button>
+                    </div>
+                  </div>
                 </form>
               </CardContent>
             </Card>

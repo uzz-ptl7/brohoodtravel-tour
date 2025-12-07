@@ -30,19 +30,18 @@ interface Service {
 const AllServices = () => {
     const navigate = useNavigate();
 
+    const serviceIds = [
+        "tours", "vip-transport", "ordinary-transport", "airport",
+        "hotel", "car-rental", "expert-drivers", "party", "field-car", "wedding"
+    ];
+
     const handleBookingClick = (index: number) => {
         if (index === 0) {
             // Tours & Travel goes to destinations
             navigate('/destinations');
         } else {
-            // Other services go to home page contact section
-            navigate('/');
-            setTimeout(() => {
-                const element = document.querySelector('#contact');
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
+            // Other services go to service booking page
+            navigate(`/service-booking/${serviceIds[index]}`);
         }
     };
 
