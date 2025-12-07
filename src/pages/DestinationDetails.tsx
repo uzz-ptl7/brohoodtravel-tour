@@ -41,7 +41,7 @@ const DestinationDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [destination, setDestination] = useState<Destination | null>(null);
-  
+
   // Check if user came from AllDestinations page
   const fromAllDestinations = location.state?.from === '/destinations';
 
