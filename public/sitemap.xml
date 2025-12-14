@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/about</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- All Destinations Page -->
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destinations</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- All Services Page -->
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/services</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Individual Destinations -->
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/1</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://brohoodtravel-tour.netlify.app/data/dest-kgl.jpg</image:loc>
+      <image:title>Kigali City Experience</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/2</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://brohoodtravel-tour.netlify.app/data/dest-kivu.jpg</image:loc>
+      <image:title>Rubavu (Gisenyi) - Lake Kivu</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/3</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://brohoodtravel-tour.netlify.app/data/dest-nyungwe.jpg</image:loc>
+      <image:title>Nyungwe Forest Adventure</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/4</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://brohoodtravel-tour.netlify.app/data/dest-volcanoes.jpg</image:loc>
+      <image:title>Musanze & Volcanoes National Park</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/5</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/6</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/7</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/8</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/9</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/destination/10</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Service Booking Pages -->
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/vip-transport</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/ordinary-transport</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/airport</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/hotel</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/car-rental</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/expert-drivers</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/party</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/field-car</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://brohoodtravel-tour.netlify.app/service-booking/wedding</loc>
+    <lastmod>2025-12-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>

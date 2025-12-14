@@ -11,6 +11,7 @@ import { ArrowLeft, MapPin, Calendar, Users, Mail, MessageCircle } from "lucide-
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 // Path to your local JSON file
 const DESTINATIONS_JSON_PATH = "/data/destinations.json";
@@ -219,6 +220,18 @@ Includes: ${destination.price_details}` : ''}`;
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={destination ? `Book ${destination.name} - Brotherhood Company` : "Book Tour - Brotherhood Company"}
+        description={destination ? `Book your ${destination.name} tour package in ${destination.location}. Professional guide, transport, and unforgettable experiences with Brotherhood Company.` : "Book your Rwanda tour package with Brotherhood Company. Professional service and unforgettable experiences."}
+        keywords={destination ? `book ${destination.name}, ${destination.location} tour booking, Rwanda tour booking, Brotherhood Company booking` : "Rwanda tour booking, book Rwanda travel"}
+        url={`https://brohoodtravel-tour.netlify.app/booking/${id}`}
+        breadcrumbs={[
+          { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
+          { name: "Destinations", url: "https://brohoodtravel-tour.netlify.app/destinations" },
+          ...(destination ? [{ name: destination.name, url: `https://brohoodtravel-tour.netlify.app/destination/${id}` }] : []),
+          { name: "Booking", url: `https://brohoodtravel-tour.netlify.app/booking/${id}` }
+        ]}
+      />
       <Header />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">

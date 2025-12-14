@@ -63,10 +63,20 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Us - Brotherhood Company Travel & Tours"
-        description="Learn about Brotherhood Company, Rwanda's trusted travel partner since 2014. We provide professional tours, VIP transportation, car rental, and expert travel services across Rwanda and neighboring countries."
-        keywords="About Brotherhood Company, Rwanda travel company, travel agency Rwanda, TIN 121686474, licensed tour operator Rwanda"
+        title="About Us - Brotherhood Company Travel & Tours Rwanda"
+        description="Learn about Brotherhood Company, Rwanda's trusted travel partner. We provide professional tours, VIP transportation, car rental, and expert travel services across Rwanda and neighboring countries. TIN: 121686474. Licensed tour operator with 1+ years of excellence."
+        keywords="About Brotherhood Company, Rwanda travel company, travel agency Rwanda, TIN 121686474, licensed tour operator Rwanda, Kigali travel agency, Rwanda tourism company, East Africa tours"
         url="https://brohoodtravel-tour.netlify.app/about"
+        breadcrumbs={[
+          { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
+          { name: "About Us", url: "https://brohoodtravel-tour.netlify.app/about" }
+        ]}
+        faq={[
+          { question: "How long has Brotherhood Company been operating?", answer: "Brotherhood Company has been providing professional travel and tour services in Rwanda for over 1 year, serving 20+ happy customers." },
+          { question: "What services does Brotherhood Company offer?", answer: "We offer comprehensive travel services including guided tours, VIP transportation, airport transfers, car rentals, hotel reservations, expert drivers, and event organizing across Rwanda and neighboring countries." },
+          { question: "Is Brotherhood Company a licensed tour operator?", answer: "Yes, Brotherhood Company is a licensed tour operator in Rwanda with TIN: 121686474." },
+          { question: "What areas does Brotherhood Company cover?", answer: "We cover all major destinations in Rwanda including Kigali, Volcanoes National Park, Lake Kivu, Nyungwe Forest, Akagera National Park, and also offer cross-border tours to neighboring countries." }
+        ]}
       />
       <Header />
 

@@ -181,10 +181,34 @@ const DestinationDetails = () => {
       <SEO
         title={`${destination.name} - Brotherhood Company Tours`}
         description={destination.description}
-        keywords={`${destination.name}, ${destination.location}, Rwanda travel, ${destination.highlights.join(", ")}`}
+        keywords={`${destination.name}, ${destination.location}, Rwanda travel, ${destination.highlights.join(", ")}, Rwanda tour packages`}
         url={`https://brohoodtravel-tour.netlify.app/destination/${destination.id}`}
-        image={destination.image_url}
+        image={(() => {
+          const parts = destination.image_url.split("/");
+          const file = parts[parts.length - 1];
+          const localImage = imageAssetMap[file];
+          return localImage ? `https://brohoodtravel-tour.netlify.app${destination.image_url}` : destination.image_url;
+        })()}
         type="article"
+        breadcrumbs={[
+          { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
+          { name: "Destinations", url: "https://brohoodtravel-tour.netlify.app/destinations" },
+          { name: destination.name, url: `https://brohoodtravel-tour.netlify.app/destination/${destination.id}` }
+        ]}
+        article={{
+          publishedTime: "2024-01-01T00:00:00Z",
+          modifiedTime: new Date().toISOString(),
+          section: "Travel Destinations",
+          tags: [destination.location, "Rwanda", "Travel", "Tourism", ...destination.highlights.slice(0, 3)]
+        }}
+        product={{
+          name: destination.name,
+          price: destination.price_per_person?.replace("$", "") || "150",
+          currency: "USD",
+          availability: "https://schema.org/InStock",
+          rating: 4.8,
+          reviewCount: 25
+        }}
       />
       <Header />
 

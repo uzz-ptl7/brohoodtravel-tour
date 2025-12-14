@@ -8,6 +8,23 @@ interface SEOProps {
     url?: string;
     type?: string;
     author?: string;
+    breadcrumbs?: Array<{ name: string; url: string }>;
+    article?: {
+        publishedTime?: string;
+        modifiedTime?: string;
+        author?: string;
+        section?: string;
+        tags?: string[];
+    };
+    faq?: Array<{ question: string; answer: string }>;
+    product?: {
+        name?: string;
+        price?: string;
+        currency?: string;
+        availability?: string;
+        rating?: number;
+        reviewCount?: number;
+    };
 }
 
 const SEO = ({
@@ -17,7 +34,11 @@ const SEO = ({
     image = "https://brohoodtravel-tour.netlify.app/og-image.jpg",
     url = "https://brohoodtravel-tour.netlify.app",
     type = "website",
-    author = "Brotherhood Company"
+    author = "Brotherhood Company",
+    breadcrumbs,
+    article,
+    faq,
+    product
 }: SEOProps) => {
     const siteTitle = title.includes("Brotherhood") ? title : `${title} | Brotherhood Company`;
 
@@ -29,7 +50,9 @@ const SEO = ({
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
             <meta name="author" content={author} />
-            <meta name="robots" content="index, follow" />
+            <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+            <meta name="googlebot" content="index, follow" />
+            <meta name="bingbot" content="index, follow" />
             <meta name="language" content="English" />
             <meta name="revisit-after" content="7 days" />
 
@@ -49,22 +72,38 @@ const SEO = ({
             <meta property="og:title" content={siteTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
+            <meta property="og:image:secure_url" content={image} />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
+            <meta property="og:image:alt" content={siteTitle} />
             <meta property="og:site_name" content="Brotherhood Company" />
             <meta property="og:locale" content="en_US" />
 
+            {/* Article specific OG tags */}
+            {article && (
+                <>
+                    {article.publishedTime && <meta property="article:published_time" content={article.publishedTime} />}
+                    {article.modifiedTime && <meta property="article:modified_time" content={article.modifiedTime} />}
+                    {article.author && <meta property="article:author" content={article.author} />}
+                    {article.section && <meta property="article:section" content={article.section} />}
+                    {article.tags && article.tags.map((tag, index) => (
+                        <meta key={index} property="article:tag" content={tag} />
+                    ))}
+                </>
+            )}
+
             {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={url} />
-            <meta property="twitter:title" content={siteTitle} />
-            <meta property="twitter:description" content={description} />
-            <meta property="twitter:image" content={image} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content={url} />
+            <meta name="twitter:title" content={siteTitle} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={image} />
+            <meta name="twitter:image:alt" content={siteTitle} />
 
             {/* Canonical URL */}
             <link rel="canonical" href={url} />
 
-            {/* Structured Data - Local Business */}
+            {/* Structured Data - Local Business / Travel Agency */}
             <script type="application/ld+json">
                 {JSON.stringify({
                     "@context": "https://schema.org",
@@ -114,12 +153,125 @@ const SEO = ({
                     "url": "https://brohoodtravel-tour.netlify.app",
                     "potentialAction": {
                         "@type": "SearchAction",
-                        "target": "https://brohoodtravel-tour.netlify.app/search?q={search_term_string}",
+                        "target": "https://brohoodtravel-tour.netlify.app/destinations?q={search_term_string}",
                         "query-input": "required name=search_term_string"
                     }
                 })}
             </script>
+
+            {/* Structured Data - Organization */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Brotherhood Company",
+                    "url": "https://brohoodtravel-tour.netlify.app",
+                    "logo": "https://brohoodtravel-tour.netlify.app/logo.png",
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "telephone": "+250786425200",
+                        "contactType": "customer service",
+                        "email": "brotherhoodcompany200@gmail.com",
+                        "areaServed": "RW",
+                        "availableLanguage": ["en", "fr", "rw"]
+                    },
+                    "sameAs": [
+                        "https://www.facebook.com/brotherhoodcompany",
+                        "https://www.instagram.com/brotherhoodcompany"
+                    ]
+                })}
+            </script>
+
+            {/* Breadcrumbs Structured Data */}
+            {breadcrumbs && breadcrumbs.length > 0 && (
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": breadcrumbs.map((crumb, index) => ({
+                            "@type": "ListItem",
+                            "position": index + 1,
+                            "name": crumb.name,
+                            "item": crumb.url
+                        }))
+                    })}
+                </script>
+            )}
+
+            {/* FAQ Structured Data */}
+            {faq && faq.length > 0 && (
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": faq.map(item => ({
+                            "@type": "Question",
+                            "name": item.question,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": item.answer
+                            }
+                        }))
+                    })}
+                </script>
+            )}
+
+            {/* Product Structured Data */}
+            {product && (
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Product",
+                        "name": product.name,
+                        "image": image,
+                        "description": description,
+                        "offers": {
+                            "@type": "Offer",
+                            "url": url,
+                            "priceCurrency": product.currency || "USD",
+                            "price": product.price,
+                            "availability": product.availability || "https://schema.org/InStock"
+                        },
+                        ...(product.rating && product.reviewCount ? {
+                            "aggregateRating": {
+                                "@type": "AggregateRating",
+                                "ratingValue": product.rating,
+                                "reviewCount": product.reviewCount
+                            }
+                        } : {})
+                    })}
+                </script>
+            )}
         </Helmet>
+    );
+};
+
+export default SEO;
+
+"https://www.facebook.com/brotherhoodcompany",
+    "https://www.instagram.com/brotherhoodcompany"
+                    ],
+"taxID": "121686474"
+                })}
+            </script >
+
+    {/* Structured Data - Website */ }
+    < script type = "application/ld+json" >
+    {
+        JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Brotherhood Company",
+            "url": "https://brohoodtravel-tour.netlify.app",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://brohoodtravel-tour.netlify.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        })
+    }
+            </script >
+        </Helmet >
     );
 };
 

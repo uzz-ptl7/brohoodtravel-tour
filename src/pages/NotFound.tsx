@@ -1,5 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,14 +15,26 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <div className="min-h-screen bg-background">
+      <SEO
+        title="404 - Page Not Found | Brotherhood Company"
+        description="The page you are looking for could not be found. Browse our Rwanda travel destinations, tours, and services."
+        url="https://brohoodtravel-tour.netlify.app/404"
+      />
+      <Header />
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="text-center px-4">
+          <h1 className="text-6xl font-bold mb-4 text-foreground">404</h1>
+          <p className="text-xl text-muted-foreground mb-6">Oops! Page not found</p>
+          <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+          </p>
+          <a href="/" className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+            Return to Home
+          </a>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

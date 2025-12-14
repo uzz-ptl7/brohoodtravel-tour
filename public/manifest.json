@@ -1,0 +1,71 @@
+{
+  "name": "Brotherhood Company - Travel & Tours in Rwanda",
+  "short_name": "Brotherhood Travel",
+  "description": "Experience the best of Rwanda with Brotherhood Company. Professional travel, tours, VIP transportation, airport transfers, hotel reservations, and car rental services.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0EA5E9",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "travel",
+    "business",
+    "lifestyle"
+  ],
+  "lang": "en-US",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Browse Destinations",
+      "short_name": "Destinations",
+      "description": "Explore all Rwanda destinations",
+      "url": "/destinations",
+      "icons": [
+        {
+          "src": "/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Our Services",
+      "short_name": "Services",
+      "description": "View all our travel services",
+      "url": "/services",
+      "icons": [
+        {
+          "src": "/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "short_name": "About",
+      "description": "Learn about Brotherhood Company",
+      "url": "/about",
+      "icons": [
+        {
+          "src": "/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

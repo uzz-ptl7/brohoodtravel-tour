@@ -138,10 +138,14 @@ const AllServices = () => {
     return (
         <div className="min-h-screen bg-background">
             <SEO
-                title="All Services - Brotherhood Company Tours"
-                description="Complete range of travel services including VIP transportation, airport transfers, car rentals, hotel reservations, expert drivers, and event organizing in Rwanda."
-                keywords="Rwanda transportation, car rental Kigali, airport pickup Rwanda, VIP transport, wedding car Rwanda, party organizing, driver guides"
+                title="All Travel Services in Rwanda - Brotherhood Company"
+                description="Complete range of professional travel services in Rwanda including VIP transportation, airport transfers, car rentals, hotel reservations, expert driver guides, wedding transport, party organizing, and field vehicles. Available 24/7 for all your travel needs."
+                keywords="Rwanda transportation services, car rental Kigali, airport pickup Rwanda, VIP transport Rwanda, wedding car rental Rwanda, party organizing Rwanda, driver guides Rwanda, hotel reservations Rwanda, travel services Rwanda, Brotherhood Company services"
                 url="https://brohoodtravel-tour.netlify.app/services"
+                breadcrumbs={[
+                    { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
+                    { name: "Services", url: "https://brohoodtravel-tour.netlify.app/services" }
+                ]}
             />
             <Header />
 

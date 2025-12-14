@@ -97,10 +97,14 @@ const AllDestinations = () => {
     return (
         <div className="min-h-screen bg-background">
             <SEO
-                title="All Destinations - Brotherhood Company Tours"
-                description="Browse all travel destinations in Rwanda including Kigali, Volcanoes National Park, Lake Kivu, Nyungwe Forest, Akagera, and more. Find your perfect adventure."
-                keywords="Rwanda destinations, all Rwanda tours, Rwanda travel packages, gorilla trekking, Lake Kivu, Nyungwe Forest, Akagera safari"
+                title="All Destinations in Rwanda - Brotherhood Company Tours"
+                description="Browse all travel destinations in Rwanda including Kigali, Volcanoes National Park for gorilla trekking, Lake Kivu beaches, Nyungwe Forest canopy walks, Akagera safari, and more. Find your perfect Rwanda adventure with Brotherhood Company."
+                keywords="Rwanda destinations, all Rwanda tours, Rwanda travel packages, gorilla trekking, Lake Kivu, Nyungwe Forest, Akagera safari, Kigali city tours, Rwanda attractions, Rwanda holiday packages, East Africa tours"
                 url="https://brohoodtravel-tour.netlify.app/destinations"
+                breadcrumbs={[
+                    { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
+                    { name: "Destinations", url: "https://brohoodtravel-tour.netlify.app/destinations" }
+                ]}
             />
             <Header />
 
