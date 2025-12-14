@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, MapPin, Calendar, Users, Camera } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ArrowLeft, MapPin, Calendar, Users, Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -14,6 +15,25 @@ import destKivu from "@/assets/dest-kivu.jpg";
 import destNyungwe from "@/assets/dest-nyungwe.jpg";
 import destVolcanoes from "@/assets/dest-volcanoes.jpg";
 import destRwanda from "@/assets/destination-rwanda.jpg";
+// Additional images for galleries
+import akageraPark from "@/assets/akagerapark.jpg";
+import akageraNationalPark from "@/assets/akageranationalpark.jpeg";
+import big5Animals from "@/assets/big5animals.jpeg";
+import lakeMuhazi from "@/assets/lakemuhazi.jpg";
+import karongiLakeKivu from "@/assets/karongilakekivu.jpg";
+import gishwatiForest from "@/assets/gishwatiforest.jpg";
+import gishwatiPark from "@/assets/gishwatipark.jpeg";
+import nyungwePark from "@/assets/nyungwepark.jpeg";
+import volcanoesNP from "@/assets/volcanoespark.jpeg";
+import twinLakes from "@/assets/twinlakes.jpeg";
+import genocideMemorial from "@/assets/genocidememorial.jpeg";
+import ndabaWaterfalls from "@/assets/ndabawaterfalls.jpg";
+import ndabaRocksWaterfalls from "@/assets/ndabarockswaterfalls.jpeg";
+import nyanzaRoyalPalace from "@/assets/nyanzaroyalpalace.jpg";
+import coffee from "@/assets/coffee.jpg";
+import congoNileTrail from "@/assets/congoniletrail.jpg";
+import huye from "@/assets/huye.jpg";
+import rusizi from "@/assets/rusizi.jpg";
 
 const imageAssetMap: Record<string, string> = {
   "dest-kgl.jpg": destKgl,
@@ -21,6 +41,81 @@ const imageAssetMap: Record<string, string> = {
   "dest-nyungwe.jpg": destNyungwe,
   "dest-volcanoes.jpg": destVolcanoes,
   "destination-rwanda.jpg": destRwanda,
+  "akagerapark.jpg": akageraPark,
+  "karongilakekivu.jpg": karongiLakeKivu,
+  "gishwatiforest.jpg": gishwatiForest,
+  "huye.jpg": huye,
+  "lakemuhazi.jpg": lakeMuhazi,
+  "nyanzaroyalpalace.jpg": nyanzaRoyalPalace,
+  "coffee.jpg": coffee,
+  "congoniletrail.jpg": congoNileTrail,
+  "rusizi.jpg": rusizi,
+  "twinlakes.jpeg": twinLakes,
+  "genocidememorial.jpeg": genocideMemorial,
+  "ndabawaterfalls.jpg": ndabaWaterfalls,
+};
+
+// Destination-specific galleries - maps destination ID to array of images
+const destinationGalleries: Record<string, { src: string; alt: string }[]> = {
+  "1": [
+    { src: destKgl, alt: "Kigali City View" },
+    { src: genocideMemorial, alt: "Kigali Genocide Memorial" },
+  ],
+  "2": [
+    { src: destKivu, alt: "Lake Kivu Beach" },
+    { src: karongiLakeKivu, alt: "Karongi Lake Kivu Shores" },
+  ],
+  "3": [
+    { src: destNyungwe, alt: "Nyungwe Forest Canopy" },
+    { src: nyungwePark, alt: "Nyungwe National Park" },
+  ],
+  "4": [
+    { src: destVolcanoes, alt: "Volcanoes National Park" },
+    { src: volcanoesNP, alt: "Mountain Gorilla Habitat" },
+  ],
+  "5": [
+    { src: akageraPark, alt: "Akagera Savannah" },
+    { src: akageraNationalPark, alt: "Akagera Wildlife" },
+    { src: big5Animals, alt: "Big Five Animals" },
+    { src: lakeMuhazi, alt: "Lake Muhazi" },
+  ],
+  "6": [
+    { src: karongiLakeKivu, alt: "Karongi Lake Kivu" },
+  ],
+  "7": [
+    { src: huye, alt: "Huye Museum" },
+    { src: nyanzaRoyalPalace, alt: "Nyanza Royal Palace" },
+  ],
+  "8": [
+    { src: gishwatiForest, alt: "Gishwati Forest" },
+    { src: gishwatiPark, alt: "Gishwati-Mukura Park" },
+  ],
+  "9": [
+    { src: rusizi, alt: "Rusizi District" },
+  ],
+  "10": [
+    { src: congoNileTrail, alt: "Congo Nile Trail" },
+    { src: karongiLakeKivu, alt: "Lake Kivu Shores" },
+  ],
+  "11": [
+    { src: lakeMuhazi, alt: "Lake Muhazi" },
+  ],
+  "12": [
+    { src: nyanzaRoyalPalace, alt: "Nyanza Royal Palace" },
+  ],
+  "13": [
+    { src: coffee, alt: "Coffee Plantation" },
+  ],
+  "14": [
+    { src: twinLakes, alt: "Twin Lakes Burera & Ruhondo" },
+  ],
+  "15": [
+    { src: genocideMemorial, alt: "Kigali Genocide Memorial" },
+  ],
+  "16": [
+    { src: ndabaWaterfalls, alt: "Ndaba Waterfalls" },
+    { src: ndabaRocksWaterfalls, alt: "Ndaba Rocks Waterfalls" },
+  ],
 };
 
 interface Destination {
@@ -41,9 +136,14 @@ const DestinationDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [destination, setDestination] = useState<Destination | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
   // Check if user came from AllDestinations page
   const fromAllDestinations = location.state?.from === '/destinations';
+
+  // Get gallery for current destination
+  const destinationGallery = id ? destinationGalleries[id] || [] : [];
+  const hasGallery = destinationGallery.length > 1;
 
   useEffect(() => {
     fetch("/data/destinations.json")
@@ -157,6 +257,34 @@ const DestinationDetails = () => {
                       ))}
                     </div>
 
+                    {/* Image Gallery Section */}
+                    {hasGallery && (
+                      <div className="mb-6">
+                        <h3 className="text-2xl font-bold mb-4 flex items-center">
+                          <Camera className="h-6 w-6 mr-2" />
+                          Photo Gallery
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {destinationGallery.map((image, index) => (
+                            <div
+                              key={index}
+                              className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[4/3]"
+                              onClick={() => setSelectedImageIndex(index)}
+                            >
+                              <img
+                                src={image.src}
+                                alt={image.alt}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <Camera className="h-8 w-8 text-white" />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Social Share */}
                     <div className="flex items-center justify-between border-t pt-6">
                       <h4 className="font-semibold">Share this destination:</h4>
@@ -235,6 +363,70 @@ const DestinationDetails = () => {
 
         {/* Travel Tips removed */}
       </main>
+
+      {/* Image Viewer Dialog */}
+      {selectedImageIndex !== null && (
+        <Dialog open={true} onOpenChange={() => setSelectedImageIndex(null)}>
+          <DialogContent className="max-w-5xl p-0 bg-black/95">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-2 right-2 z-50 text-white hover:bg-white/20"
+              onClick={() => setSelectedImageIndex(null)}
+            >
+              <X className="h-6 w-6" />
+            </Button>
+
+            {/* Navigation Arrows */}
+            {destinationGallery.length > 1 && (
+              <>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedImageIndex((prev) =>
+                      prev === null ? 0 : (prev - 1 + destinationGallery.length) % destinationGallery.length
+                    );
+                  }}
+                >
+                  <ChevronLeft className="h-8 w-8" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedImageIndex((prev) =>
+                      prev === null ? 0 : (prev + 1) % destinationGallery.length
+                    );
+                  }}
+                >
+                  <ChevronRight className="h-8 w-8" />
+                </Button>
+              </>
+            )}
+
+            <div className="relative">
+              <img
+                src={destinationGallery[selectedImageIndex]?.src}
+                alt={destinationGallery[selectedImageIndex]?.alt}
+                className="w-full h-auto max-h-[90vh] object-contain"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <p className="text-white text-center text-lg font-semibold">
+                  {destinationGallery[selectedImageIndex]?.alt}
+                </p>
+                <p className="text-white/70 text-center text-sm">
+                  {selectedImageIndex + 1} / {destinationGallery.length}
+                </p>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
 
       <Footer />
     </div>

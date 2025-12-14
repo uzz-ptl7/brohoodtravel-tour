@@ -10,6 +10,9 @@ import destKivu from "@/assets/dest-kivu.jpg";
 import destNyungwe from "@/assets/dest-nyungwe.jpg";
 import destVolcanoes from "@/assets/dest-volcanoes.jpg";
 import destRwanda from "@/assets/destination-rwanda.jpg";
+import twinLakes from "@/assets/twinlakes.jpeg";
+import genocideMemorial from "@/assets/genocidememorial.jpeg";
+import ndabaWaterfalls from "@/assets/ndabawaterfalls.jpg";
 
 const imageAssetMap: Record<string, string> = {
   "dest-kgl.jpg": destKgl,
@@ -17,6 +20,9 @@ const imageAssetMap: Record<string, string> = {
   "dest-nyungwe.jpg": destNyungwe,
   "dest-volcanoes.jpg": destVolcanoes,
   "destination-rwanda.jpg": destRwanda,
+  "twinlakes.jpeg": twinLakes,
+  "genocidememorial.jpeg": genocideMemorial,
+  "ndabawaterfalls.jpg": ndabaWaterfalls,
 };
 
 interface Destination {

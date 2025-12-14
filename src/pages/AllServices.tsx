@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import toursImg from "@/assets/toursandtravels.jpg";
+import toursImg from "@/assets/safarivehicle.jpeg";
 import vipImg from "@/assets/viptransport.jpg";
 import ordinaryImg from "@/assets/vehicle-fleet.jpg"; // best remaining fleet image for ordinary transport
 import airportImg from "@/assets/airport.jpg";

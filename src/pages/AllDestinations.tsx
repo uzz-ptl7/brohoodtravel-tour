@@ -2,17 +2,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Camera, Calendar, Users, Search, Filter, ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import Gallery from "@/components/Gallery";
 import destKgl from "@/assets/dest-kgl.jpg";
 import destKivu from "@/assets/dest-kivu.jpg";
 import destNyungwe from "@/assets/dest-nyungwe.jpg";
 import destVolcanoes from "@/assets/dest-volcanoes.jpg";
 import destRwanda from "@/assets/destination-rwanda.jpg";
+import twinLakes from "@/assets/twinlakes.jpeg";
+import genocideMemorial from "@/assets/genocidememorial.jpeg";
+import ndabaWaterfalls from "@/assets/ndabawaterfalls.jpg";
 
 const imageAssetMap: Record<string, string> = {
     "dest-kgl.jpg": destKgl,
@@ -20,6 +24,9 @@ const imageAssetMap: Record<string, string> = {
     "dest-nyungwe.jpg": destNyungwe,
     "dest-volcanoes.jpg": destVolcanoes,
     "destination-rwanda.jpg": destRwanda,
+    "twinlakes.jpeg": twinLakes,
+    "genocidememorial.jpeg": genocideMemorial,
+    "ndabawaterfalls.jpg": ndabaWaterfalls,
 };
 
 interface Destination {
@@ -37,11 +44,13 @@ interface Destination {
 
 const AllDestinations = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [allDestinations, setAllDestinations] = useState<Destination[]>([]);
     const [filteredDestinations, setFilteredDestinations] = useState<Destination[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
+    const [showGalleryPopup, setShowGalleryPopup] = useState(location.state?.openGallery || false);
 
     const categories = ["All", "Wildlife Safari", "Nature & Wildlife", "Beach & Lake", "City Tour", "Cultural", "Historical", "Adventure"];
 
@@ -62,7 +71,7 @@ const AllDestinations = () => {
 
         fetchDestinations();
         window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
+    }, [location]);
 
     useEffect(() => {
         let filtered = allDestinations;
@@ -288,6 +297,9 @@ const AllDestinations = () => {
                     </Card>
                 </div>
             </main>
+
+            {/* Gallery Popup Component */}
+            <Gallery initialOpen={showGalleryPopup} advertisementMode={showGalleryPopup} />
 
             <Footer />
         </div>

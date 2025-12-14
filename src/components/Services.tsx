@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Car, Plane, Hotel, Key, Users, MapPin, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 // Use local assets provided in src/assets
-import toursImg from "@/assets/toursandtravels.jpg";
+import toursImg from "@/assets/safarivehicle.jpeg";
 import vipImg from "@/assets/viptransport.jpg";
 import ordinaryImg from "@/assets/vehicle-fleet.jpg"; // best remaining fleet image for ordinary transport
 import airportImg from "@/assets/airport.jpg";
@@ -32,8 +32,8 @@ const Services = () => {
 
   const handleBookingClick = (serviceTitle: string) => {
     if (serviceTitle === "Tours & Travel") {
-      // Tours & Travel goes to destinations
-      navigate('/destinations');
+      // Tours & Travel goes to destinations page with gallery popup
+      navigate('/destinations', { state: { openGallery: true } });
     } else {
       // Other services go to service booking page
       const serviceId = serviceIdMap[serviceTitle];

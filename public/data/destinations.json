@@ -180,5 +180,47 @@
     "price_per_person": "$70",
     "price_details": "Includes plantation tour, tasting, guide, transport",
     "highlights": ["Coffee Plantations", "Bean Picking", "Roasting Process", "Coffee Tasting", "Farm Tours"]
+  },
+  {
+    "id": "14",
+    "name": "Twin Lakes - Burera & Ruhondo",
+    "location": "Northern Rwanda",
+    "category": "Nature & Scenic",
+    "description": "Discover the breathtaking Twin Lakes nestled between terraced hills and volcanic mountains. These stunning lakes offer spectacular views, kayaking adventures, and peaceful island retreats perfect for nature lovers and photographers.",
+    "image_url": "/data/twinlakes.jpeg",
+    "duration": "1-2 Days",
+    "max_capacity": 15,
+    "price_range": "$$",
+    "price_per_person": "$220",
+    "price_details": "Includes guide, transport, boat rides, island tours",
+    "highlights": ["Kayaking Adventures", "Island Exploration", "Mountain Views", "Bird Watching", "Photography Spots", "Local Communities", "Terraced Hillsides"]
+  },
+  {
+    "id": "15",
+    "name": "Kigali Genocide Memorial",
+    "location": "Kigali",
+    "category": "Historical & Memorial",
+    "description": "A powerful and moving experience at the Kigali Genocide Memorial, honoring the victims of the 1994 genocide. Learn about Rwanda's history, resilience, and journey toward reconciliation through exhibitions, gardens, and memorial sites.",
+    "image_url": "/data/genocidememorial.jpeg",
+    "duration": "Half Day",
+    "max_capacity": 30,
+    "price_range": "$",
+    "price_per_person": "$50",
+    "price_details": "Includes guided tour, entrance fees, transport",
+    "highlights": ["Memorial Gardens", "Historical Exhibitions", "Burial Site", "Children's Memorial", "Education Center", "Documentation Center", "Reconciliation Journey"]
+  },
+  {
+    "id": "16",
+    "name": "Ndaba Rocks & Waterfalls",
+    "location": "Musanze, Northern Rwanda",
+    "category": "Nature & Adventure",
+    "description": "Experience the stunning Ndaba Rocks and cascading waterfalls nestled in the volcanic highlands of Northern Rwanda. This hidden gem offers spectacular natural beauty, hiking trails, and the perfect spot for nature photography and peaceful reflection.",
+    "image_url": "/data/ndabawaterfalls.jpg",
+    "duration": "Half Day - 1 Day",
+    "max_capacity": 20,
+    "price_range": "$",
+    "price_per_person": "$85",
+    "price_details": "Includes guide, transport, hiking gear",
+    "highlights": ["Cascading Waterfalls", "Rock Formations", "Hiking Trails", "Photography Spots", "Nature Walks", "Bird Watching", "Scenic Views", "Volcanic Landscape"]
   }
 ]

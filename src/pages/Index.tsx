@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Destinations from "@/components/Destinations";
+import Gallery from "@/components/Gallery";
 // TravelTips and FAQSection removed per request
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -20,6 +21,7 @@ const Index = () => {
       <Hero />
       <Services />
       <Destinations />
+      <Gallery />
       <Contact />
       <Footer />
     </div>
