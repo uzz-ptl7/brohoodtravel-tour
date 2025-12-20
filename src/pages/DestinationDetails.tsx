@@ -32,8 +32,21 @@ import ndabaRocksWaterfalls from "@/assets/ndabarockswaterfalls.jpeg";
 import nyanzaRoyalPalace from "@/assets/nyanzaroyalpalace.jpg";
 import coffee from "@/assets/coffee.jpg";
 import congoNileTrail from "@/assets/congoniletrail.jpg";
+import congoNileTrail1 from "@/assets/congoniletrail1.jpeg";
 import huye from "@/assets/huye.jpg";
 import rusizi from "@/assets/rusizi.jpg";
+// River images
+import rusiziRiver from "@/assets/rusiziriver.jpg";
+import rusiziRiver1 from "@/assets/rusiziriver1.jpg.jpeg";
+import rusiziRiver2 from "@/assets/rusiziriver2.jpg";
+import akanyaruRiver from "@/assets/akanyaruriver.jpg";
+import mukungwaRiver from "@/assets/mukungwariver.jpg";
+import mukungwaRiver1 from "@/assets/mukungwariver1.jpeg";
+import nyabarongoRiver from "@/assets/nyabarongoriver.jpg";
+import nyabarongoRiver1 from "@/assets/nyabarongoriver1.jpeg";
+import sebayaRiver from "@/assets/sebayariver.jpeg";
+import nileBasin from "@/assets/nilebasin.jpg";
+import hiking from "@/assets/hiking.jpeg";
 
 const imageAssetMap: Record<string, string> = {
   "dest-kgl.jpg": destKgl,
@@ -53,6 +66,13 @@ const imageAssetMap: Record<string, string> = {
   "twinlakes.jpeg": twinLakes,
   "genocidememorial.jpeg": genocideMemorial,
   "ndabawaterfalls.jpg": ndabaWaterfalls,
+  "rusiziriver.jpg": rusiziRiver,
+  "akanyaruriver.jpg": akanyaruRiver,
+  "mukungwariver.jpg": mukungwaRiver,
+  "nyabarongoriver.jpg": nyabarongoRiver,
+  "sebayariver.jpeg": sebayaRiver,
+  "nilebasin.jpg": nileBasin,
+  "hiking.jpeg": hiking,
 };
 
 // Destination-specific galleries - maps destination ID to array of images
@@ -115,6 +135,31 @@ const destinationGalleries: Record<string, { src: string; alt: string }[]> = {
   "16": [
     { src: ndabaWaterfalls, alt: "Ndaba Waterfalls" },
     { src: ndabaRocksWaterfalls, alt: "Ndaba Rocks Waterfalls" },
+  ],
+  "17": [
+    { src: rusiziRiver, alt: "Rusizi River" },
+    { src: rusiziRiver1, alt: "Rusizi River Views" },
+    { src: rusiziRiver2, alt: "Rusizi River Landscape" },
+  ],
+  "18": [
+    { src: akanyaruRiver, alt: "Akanyaru River" },
+  ],
+  "19": [
+    { src: mukungwaRiver, alt: "Mukungwa River" },
+    { src: mukungwaRiver1, alt: "Mukungwa River Valley" },
+  ],
+  "20": [
+    { src: nyabarongoRiver, alt: "Nyabarongo River" },
+    { src: nyabarongoRiver1, alt: "Nyabarongo River Views" },
+  ],
+  "21": [
+    { src: sebayaRiver, alt: "Sebaya River" },
+  ],
+  "22": [
+    { src: nileBasin, alt: "Nile Basin Connection" },
+  ],
+  "23": [
+    { src: hiking, alt: "Mountain Hiking in Rwanda" },
   ],
 };
 

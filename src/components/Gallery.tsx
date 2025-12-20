@@ -28,6 +28,7 @@ import destNyungweImg from "@/assets/dest-nyungwe.jpg";
 import destVolcanoesImg from "@/assets/dest-volcanoes.jpg";
 import destRwandaImg from "@/assets/destination-rwanda.jpg";
 import congoNileImg from "@/assets/congoniletrail.jpg";
+import congoNileImg1 from "@/assets/congoniletrail1.jpeg";
 import huyeImg from "@/assets/huye.jpg";
 import rusiziImg from "@/assets/rusizi.jpg";
 import big5Img from "@/assets/big5animals.jpeg";
@@ -46,6 +47,39 @@ import nyanzaHotelImg from "@/assets/nyanzaheritagehotel.jpeg";
 import rwandaArtImg from "@/assets/rwandaartmeseum.jpeg";
 import richardKandtImg from "@/assets/richardkandtmeseum.jpeg";
 
+// Hotels & Accommodations
+import cleoLakeKivuImg from "@/assets/cleolakekivuhotel.jpeg";
+import fourPointsImg from "@/assets/fourpointbysherattonkgl.jpeg";
+import chateauMararaImg from "@/assets/hotelchateaulemarara.jpeg";
+import milleColinesImg from "@/assets/hoteldesmillecollines.jpeg";
+import kglSerenaImg from "@/assets/kglserenahotel.jpeg";
+import lakeKivuSerenaImg from "@/assets/lakekivuserenahotel.jpeg";
+import mantisAkageraImg from "@/assets/mantisakageragamelodge.jpeg";
+import marriottImg from "@/assets/marriothotel.jpeg";
+import mentisEpicImg from "@/assets/mentisepichotel.jpg";
+import mentisEpicImg1 from "@/assets/mentisepichotel1.jpg";
+import mHotelImg from "@/assets/mhotel.jpeg";
+import nyungweTopViewImg from "@/assets/nyungwetopviewhillhotel.jpeg";
+import gorilaNestImg from "@/assets/one&onlygorillanest.jpeg";
+import nyungweHouseImg from "@/assets/one&onlynyungwehouse.jpeg";
+import nyungweHouseImg1 from "@/assets/one&onlynyungwehouse1.jpg";
+import radissonBlueImg from "@/assets/radissonbluehotel&conventioncenter.jpeg";
+import rushelKivuImg from "@/assets/rushelkivuresort.jpeg";
+import virungaInnImg from "@/assets/virungainnresort&spa.jpeg";
+
+// Rivers & Waterways
+import akanyaruRiverImg from "@/assets/akanyaruriver.jpg";
+import mukungwaRiverImg from "@/assets/mukungwariver.jpg";
+import mukungwaRiverImg1 from "@/assets/mukungwariver1.jpeg";
+import nyabarongoRiverImg from "@/assets/nyabarongoriver.jpg";
+import nyabarongoRiverImg1 from "@/assets/nyabarongoriver1.jpeg";
+import rusiziRiverImg from "@/assets/rusiziriver.jpg";
+import rusiziRiverImg1 from "@/assets/rusiziriver1.jpg.jpeg";
+import rusiziRiverImg2 from "@/assets/rusiziriver2.jpg";
+import sebayaRiverImg from "@/assets/sebayariver.jpeg";
+import umvaMuhaziImg from "@/assets/umvamuhazi.jpeg";
+import nileBasinImg from "@/assets/nilebasin.jpg";
+
 interface GalleryProps {
     initialOpen?: boolean;
     advertisementMode?: boolean;
@@ -59,7 +93,7 @@ const Gallery = ({ initialOpen = false, advertisementMode = false }: GalleryProp
     const [isAdvertMode, setIsAdvertMode] = useState(advertisementMode);
 
     // Gallery categories
-    const categories = ["All", "National Parks", "Lakes & Waterfalls", "Cultural Sites", "Wildlife & Birds", "Activities"];
+    const categories = ["All", "National Parks", "Lakes & Waterfalls", "Cultural Sites", "Wildlife & Birds", "Activities", "Hotels & Lodges", "Rivers & Waterways"];
 
     // Preview images for home page (6 images)
     const previewGallery = [
@@ -90,12 +124,13 @@ const Gallery = ({ initialOpen = false, advertisementMode = false }: GalleryProp
         { src: destKglImg, alt: "Kigali City", title: "Kigali City", category: "Cultural Sites", location: "Kigali, Rwanda's Capital" },
         { src: destRwandaImg, alt: "Destination Rwanda", title: "Discover Rwanda", category: "Activities", location: "Across Rwanda" },
         { src: nyanzaImg, alt: "Nyanza Royal Palace", title: "Nyanza Royal Palace", category: "Cultural Sites", location: "Nyanza, Southern Province" },
-        { src: nyanzaHotelImg, alt: "Nyanza Heritage Hotel", title: "Nyanza Heritage Hotel", category: "Cultural Sites", location: "Nyanza" },
+        { src: nyanzaHotelImg, alt: "Nyanza Heritage Hotel", title: "Nyanza Heritage Hotel", category: "Hotels & Lodges", location: "Nyanza" },
         { src: huyeImg, alt: "Huye Cultural Experience", title: "Huye Cultural Sites", category: "Cultural Sites", location: "Huye (Butare), Southern Rwanda" },
         { src: rwandaArtImg, alt: "Rwanda Art Museum", title: "Rwanda Art Museum", category: "Cultural Sites", location: "Huye" },
         { src: richardKandtImg, alt: "Richard Kandt Museum", title: "Richard Kandt Museum", category: "Cultural Sites", location: "Kigali City" },
         { src: coffeeImg, alt: "Rwanda Coffee Plantations", title: "Coffee Experience", category: "Activities", location: "Various Locations" },
         { src: congoNileImg, alt: "Congo Nile Trail", title: "Congo Nile Trail", category: "Activities", location: "Lake Kivu Shoreline" },
+        { src: congoNileImg1, alt: "Congo Nile Trail Scenery", title: "Congo Nile Trail Views", category: "Activities", location: "Lake Kivu Shoreline" },
         { src: rusiziImg, alt: "Rusizi District", title: "Rusizi District", category: "Cultural Sites", location: "Rusizi, Western Rwanda" },
         { src: waterfallImg, alt: "Ndaba Rocks Waterfalls", title: "Ndaba Rocks Waterfalls", category: "Lakes & Waterfalls", location: "Northern Rwanda" },
         { src: ndabaWaterfallsImg, alt: "Ndaba Waterfalls", title: "Ndaba Waterfalls", category: "Lakes & Waterfalls", location: "Musanze, Northern Rwanda" },
@@ -111,6 +146,39 @@ const Gallery = ({ initialOpen = false, advertisementMode = false }: GalleryProp
         { src: babblerImg, alt: "Red-collared Babbler", title: "Red-collared Babbler", category: "Wildlife & Birds", location: "Nyungwe & Gishwati Forests" },
         { src: sunbirdImg, alt: "Regal Sunbird", title: "Regal Sunbird", category: "Wildlife & Birds", location: "Nyungwe Forest" },
         { src: rwenzoriTuracoImg, alt: "Rwenzori Turaco", title: "Rwenzori Turaco", category: "Wildlife & Birds", location: "Nyungwe & Volcanoes" },
+
+        // Hotels & Lodges
+        { src: cleoLakeKivuImg, alt: "Cleo Lake Kivu Hotel", title: "Cleo Lake Kivu Hotel", category: "Hotels & Lodges", location: "Lake Kivu" },
+        { src: fourPointsImg, alt: "Four Points by Sheraton", title: "Four Points Sheraton Kigali", category: "Hotels & Lodges", location: "Kigali" },
+        { src: chateauMararaImg, alt: "Hotel Chateau le Marara", title: "Chateau le Marara", category: "Hotels & Lodges", location: "Musanze" },
+        { src: milleColinesImg, alt: "Hotel des Mille Collines", title: "Hotel des Mille Collines", category: "Hotels & Lodges", location: "Kigali" },
+        { src: kglSerenaImg, alt: "Kigali Serena Hotel", title: "Kigali Serena Hotel", category: "Hotels & Lodges", location: "Kigali" },
+        { src: lakeKivuSerenaImg, alt: "Lake Kivu Serena Hotel", title: "Lake Kivu Serena Hotel", category: "Hotels & Lodges", location: "Lake Kivu" },
+        { src: mantisAkageraImg, alt: "Mantis Akagera Game Lodge", title: "Mantis Akagera Lodge", category: "Hotels & Lodges", location: "Akagera National Park" },
+        { src: marriottImg, alt: "Marriott Hotel Kigali", title: "Marriott Hotel Kigali", category: "Hotels & Lodges", location: "Kigali" },
+        { src: mentisEpicImg, alt: "Mentis Epic Hotel", title: "Mentis Epic Hotel", category: "Hotels & Lodges", location: "Kigali" },
+        { src: mentisEpicImg1, alt: "Mentis Epic Hotel Interior", title: "Mentis Epic Hotel", category: "Hotels & Lodges", location: "Kigali" },
+        { src: mHotelImg, alt: "M Hotel Kigali", title: "M Hotel", category: "Hotels & Lodges", location: "Kigali" },
+        { src: nyungweTopViewImg, alt: "Nyungwe Top View Hill Hotel", title: "Nyungwe Top View Hotel", category: "Hotels & Lodges", location: "Nyungwe" },
+        { src: gorilaNestImg, alt: "One&Only Gorilla's Nest", title: "One&Only Gorilla's Nest", category: "Hotels & Lodges", location: "Volcanoes National Park" },
+        { src: nyungweHouseImg, alt: "One&Only Nyungwe House", title: "One&Only Nyungwe House", category: "Hotels & Lodges", location: "Nyungwe Forest" },
+        { src: nyungweHouseImg1, alt: "One&Only Nyungwe House", title: "One&Only Nyungwe House", category: "Hotels & Lodges", location: "Nyungwe Forest" },
+        { src: radissonBlueImg, alt: "Radisson Blu Hotel Kigali", title: "Radisson Blu Hotel", category: "Hotels & Lodges", location: "Kigali" },
+        { src: rushelKivuImg, alt: "Rushel Kivu Resort", title: "Rushel Kivu Resort", category: "Hotels & Lodges", location: "Lake Kivu" },
+        { src: virungaInnImg, alt: "Virunga Inn Resort & Spa", title: "Virunga Inn Resort", category: "Hotels & Lodges", location: "Musanze" },
+
+        // Rivers & Waterways
+        { src: rusiziRiverImg, alt: "Rusizi River", title: "Rusizi River", category: "Rivers & Waterways", location: "Western Rwanda" },
+        { src: rusiziRiverImg1, alt: "Rusizi River Views", title: "Rusizi River", category: "Rivers & Waterways", location: "Western Rwanda" },
+        { src: rusiziRiverImg2, alt: "Rusizi River Landscape", title: "Rusizi River", category: "Rivers & Waterways", location: "Western Rwanda" },
+        { src: akanyaruRiverImg, alt: "Akanyaru River", title: "Akanyaru River", category: "Rivers & Waterways", location: "Southern Rwanda" },
+        { src: mukungwaRiverImg, alt: "Mukungwa River", title: "Mukungwa River", category: "Rivers & Waterways", location: "Northern Rwanda" },
+        { src: mukungwaRiverImg1, alt: "Mukungwa River Valley", title: "Mukungwa River", category: "Rivers & Waterways", location: "Northern Rwanda" },
+        { src: nyabarongoRiverImg, alt: "Nyabarongo River", title: "Nyabarongo River", category: "Rivers & Waterways", location: "Central Rwanda" },
+        { src: nyabarongoRiverImg1, alt: "Nyabarongo River Views", title: "Nyabarongo River", category: "Rivers & Waterways", location: "Central Rwanda" },
+        { src: sebayaRiverImg, alt: "Sebaya River", title: "Sebaya River", category: "Rivers & Waterways", location: "Northern Rwanda" },
+        { src: umvaMuhaziImg, alt: "Umva Muhazi", title: "Umva Muhazi", category: "Rivers & Waterways", location: "Eastern Rwanda" },
+        { src: nileBasinImg, alt: "Nile Basin Connection", title: "Nile Basin", category: "Rivers & Waterways", location: "Rwanda" },
     ];
 
     // Filter gallery based on selected category

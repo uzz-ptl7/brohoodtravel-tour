@@ -247,32 +247,3 @@ const SEO = ({
 };
 
 export default SEO;
-
-"https://www.facebook.com/brotherhoodcompany",
-    "https://www.instagram.com/brotherhoodcompany"
-                    ],
-"taxID": "121686474"
-                })}
-            </script >
-
-    {/* Structured Data - Website */ }
-    < script type = "application/ld+json" >
-    {
-        JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Brotherhood Company",
-            "url": "https://brohoodtravel-tour.netlify.app",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://brohoodtravel-tour.netlify.app/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
-        })
-    }
-            </script >
-        </Helmet >
-    );
-};
-
-export default SEO;

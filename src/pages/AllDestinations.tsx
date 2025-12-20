@@ -17,6 +17,7 @@ import destRwanda from "@/assets/destination-rwanda.jpg";
 import twinLakes from "@/assets/twinlakes.jpeg";
 import genocideMemorial from "@/assets/genocidememorial.jpeg";
 import ndabaWaterfalls from "@/assets/ndabawaterfalls.jpg";
+import hiking from "@/assets/hiking.jpeg";
 
 const imageAssetMap: Record<string, string> = {
     "dest-kgl.jpg": destKgl,
@@ -27,6 +28,7 @@ const imageAssetMap: Record<string, string> = {
     "twinlakes.jpeg": twinLakes,
     "genocidememorial.jpeg": genocideMemorial,
     "ndabawaterfalls.jpg": ndabaWaterfalls,
+    "hiking.jpeg": hiking,
 };
 
 interface Destination {
@@ -52,7 +54,7 @@ const AllDestinations = () => {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [showGalleryPopup, setShowGalleryPopup] = useState(location.state?.openGallery || false);
 
-    const categories = ["All", "Wildlife Safari", "Nature & Wildlife", "Beach & Lake", "City Tour", "Cultural", "Historical", "Adventure"];
+    const categories = ["All", "Wildlife Safari", "Rivers & Waterways", "Beach & Lake", "City Tour", "Cultural", "Historical", "Adventure"];
 
     useEffect(() => {
         const fetchDestinations = async () => {
