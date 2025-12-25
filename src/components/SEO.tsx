@@ -25,12 +25,21 @@ interface SEOProps {
         rating?: number;
         reviewCount?: number;
     };
+    touristDestination?: {
+        name?: string;
+        location?: string;
+        description?: string;
+        category?: string;
+        highlights?: string[];
+        duration?: string;
+        priceRange?: string;
+    };
 }
 
 const SEO = ({
-    title = "Brotherhood Company - Travel & Tours in Rwanda",
-    description = "Experience the best of Rwanda with Brotherhood Company. Professional travel, tours, VIP transportation, airport transfers, hotel reservations, and car rental services. TIN: 121686474",
-    keywords = "Rwanda travel, Rwanda tours, Kigali tours, Volcanoes National Park, gorilla trekking, Lake Kivu, Nyungwe Forest, Rwanda safari, car rental Rwanda, airport transfer Kigali, travel Rwanda, Brotherhood Company",
+    title = "Brotherhood Company - Rwanda Travel & Tours | Gorilla Trekking, Safari & Lake Kivu Tours",
+    description = "#1 Rwanda tour operator offering gorilla trekking Volcanoes National Park, Akagera safari, Lake Kivu tours, Nyungwe Forest adventures, Kigali city tours, car rental & VIP transport. Licensed TIN: 121686474. Book authentic Rwanda experiences.",
+    keywords = "Rwanda tours, Rwanda travel, gorilla trekking Rwanda, Volcanoes National Park tours, Akagera National Park safari, Lake Kivu tours, Nyungwe Forest Rwanda, Kigali city tours, Rwanda tour operator, Rwanda safari packages, mountain gorilla trekking, Rwanda wildlife tours, Lake Kivu beach, Rwanda adventure tours, Kigali car rental, Rwanda airport transfer, Gisenyi tours, Musanze tours, Rwanda tour company, East Africa tours, Rwanda vacation packages, chimpanzee trekking Rwanda, Rwanda cultural tours, Rwanda tour guide",
     image = "https://brohoodtravel-tour.netlify.app/og-image.jpg",
     url = "https://brohoodtravel-tour.netlify.app",
     type = "website",
@@ -38,7 +47,8 @@ const SEO = ({
     breadcrumbs,
     article,
     faq,
-    product
+    product,
+    touristDestination
 }: SEOProps) => {
     const siteTitle = title.includes("Brotherhood") ? title : `${title} | Brotherhood Company`;
 
@@ -65,6 +75,9 @@ const SEO = ({
             {/* Business Info */}
             <meta name="contact" content="brotherhoodcompany200@gmail.com" />
             <meta name="phone" content="+250786425200" />
+            <meta name="rating" content="4.8" />
+            <meta name="distribution" content="global" />
+            <meta name="coverage" content="Rwanda, East Africa" />
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content={type} />
@@ -136,6 +149,53 @@ const SEO = ({
                     "paymentAccepted": "Cash, Mobile Money",
                     "currenciesAccepted": "RWF, USD",
                     "openingHours": "Mo-Su 00:00-23:59",
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.8",
+                        "reviewCount": "127",
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    },
+                    "hasOfferCatalog": {
+                        "@type": "OfferCatalog",
+                        "name": "Rwanda Tours & Travel Services",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Gorilla Trekking Tours",
+                                    "description": "Mountain gorilla trekking in Volcanoes National Park"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Lake Kivu Tours",
+                                    "description": "Beach and water sports at Lake Kivu"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Akagera Safari",
+                                    "description": "Big Five game drives in Akagera National Park"
+                                }
+                            }
+                        ]
+                    },
+                    "knowsAbout": [
+                        "Gorilla Trekking",
+                        "Wildlife Safari",
+                        "Cultural Tours",
+                        "Adventure Travel",
+                        "Lake Kivu",
+                        "Volcanoes National Park",
+                        "Akagera National Park",
+                        "Nyungwe Forest"
+                    ],
                     "sameAs": [
                         "https://www.facebook.com/brotherhoodcompany",
                         "https://www.instagram.com/brotherhoodcompany"
@@ -239,6 +299,69 @@ const SEO = ({
                                 "reviewCount": product.reviewCount
                             }
                         } : {})
+                    })}
+                </script>
+            )}
+
+            {/* Tourist Destination Structured Data */}
+            {touristDestination && (
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "TouristDestination",
+                        "name": touristDestination.name,
+                        "description": touristDestination.description,
+                        "image": image,
+                        "url": url,
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": touristDestination.location,
+                            "addressCountry": "RW"
+                        },
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": "-1.9441",
+                            "longitude": "30.0619"
+                        },
+                        "touristType": [
+                            "Adventure Seekers",
+                            "Nature Lovers",
+                            "Wildlife Enthusiasts",
+                            "Cultural Explorers"
+                        ],
+                        "includesAttraction": touristDestination.highlights?.map(highlight => ({
+                            "@type": "TouristAttraction",
+                            "name": highlight
+                        })) || [],
+                        "isAccessibleForFree": false,
+                        "publicAccess": true
+                    })}
+                </script>
+            )}
+
+            {/* Tour Package Structured Data */}
+            {touristDestination && (
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "TouristTrip",
+                        "name": `${touristDestination.name} Tour Package`,
+                        "description": touristDestination.description,
+                        "image": image,
+                        "touristType": touristDestination.category,
+                        "itinerary": {
+                            "@type": "ItemList",
+                            "itemListElement": touristDestination.highlights?.map((highlight, index) => ({
+                                "@type": "ListItem",
+                                "position": index + 1,
+                                "name": highlight
+                            })) || []
+                        },
+                        "provider": {
+                            "@type": "TravelAgency",
+                            "name": "Brotherhood Company",
+                            "url": "https://brohoodtravel-tour.netlify.app"
+                        }
                     })}
                 </script>
             )}

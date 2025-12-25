@@ -81,18 +81,6 @@ const Header = () => {
               Destinations
             </a>
             <a
-              href="/about"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/about');
-                setMobileMenuOpen(false);
-                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-              }}
-              className="text-foreground hover:text-primary transition-colors cursor-pointer"
-            >
-              About
-            </a>
-            <a
               href="/#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               className="text-foreground hover:text-primary transition-colors cursor-pointer"
@@ -141,18 +129,6 @@ const Header = () => {
               className="text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Destinations
-            </a>
-            <a
-              href="/about"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/about');
-                setMobileMenuOpen(false);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="text-foreground hover:text-primary transition-colors cursor-pointer"
-            >
-              About
             </a>
             <a
               href="/#contact"

@@ -224,9 +224,9 @@ const DestinationDetails = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${destination.name} - Brotherhood Company Tours`}
-        description={destination.description}
-        keywords={`${destination.name}, ${destination.location}, Rwanda travel, ${destination.highlights.join(", ")}, Rwanda tour packages`}
+        title={`${destination.name} Tour Package - Rwanda Tours | Brotherhood Company`}
+        description={`Explore ${destination.name} in ${destination.location}. ${destination.description} Book your Rwanda tour package today with Brotherhood Company. ${destination.highlights.slice(0, 3).join(", ")}.`}
+        keywords={`${destination.name} tours, ${destination.location} Rwanda, ${destination.category.toLowerCase()} Rwanda, ${destination.highlights.join(", ")}, Rwanda tour packages, ${destination.name.toLowerCase()} guide, best ${destination.name.toLowerCase()} tours, ${destination.location} travel, Rwanda ${destination.category.toLowerCase()}, Brotherhood Company Rwanda`}
         url={`https://brohoodtravel-tour.netlify.app/destination/${destination.id}`}
         image={(() => {
           const parts = destination.image_url.split("/");
@@ -248,11 +248,20 @@ const DestinationDetails = () => {
         }}
         product={{
           name: destination.name,
-          price: destination.price_per_person?.replace("$", "") || "150",
+          price: destination.price_per_person?.replace("$", "").replace(",", "") || "150",
           currency: "USD",
           availability: "https://schema.org/InStock",
           rating: 4.8,
           reviewCount: 25
+        }}
+        touristDestination={{
+          name: destination.name,
+          location: destination.location,
+          description: destination.description,
+          category: destination.category,
+          highlights: destination.highlights,
+          duration: destination.duration,
+          priceRange: destination.price_range
         }}
       />
       <Header />

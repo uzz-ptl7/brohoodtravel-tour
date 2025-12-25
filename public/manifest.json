@@ -55,17 +55,6 @@
         }
       ]
     },
-    {
-      "name": "About Us",
-      "short_name": "About",
-      "description": "Learn about Brotherhood Company",
-      "url": "/about",
-      "icons": [
-        {
-          "src": "/logo.png",
-          "sizes": "96x96"
-        }
-      ]
-    }
+    
   ]
 }
