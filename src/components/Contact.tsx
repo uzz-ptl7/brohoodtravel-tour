@@ -36,13 +36,16 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
-      const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+      const response = await fetch("https://formspree.io/f/mbdrnbnw", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _formType: "Contact / Consultation Form",
+          _subject: "New Contact/Consultation Request"
+        }),
       });
 
       if (response.ok) {
@@ -189,7 +192,9 @@ ${formData.message}`;
                 <CardDescription>Ask questions or request consultation — we respond within 24 hours</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/mbdrnbnw" method="POST">
+                  <input type="hidden" name="_formType" value="Contact / Consultation Form" />
+                  <input type="hidden" name="_subject" value="New Contact/Consultation Request" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>

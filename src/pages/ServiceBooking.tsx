@@ -75,8 +75,7 @@ const ServiceBooking = () => {
         setSubmitting(true);
 
         try {
-            // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
-            const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+            const response = await fetch("https://formspree.io/f/mbdrnbnw", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -85,6 +84,8 @@ const ServiceBooking = () => {
                     ...formData,
                     service: service.title,
                     serviceDescription: service.description,
+                    _formType: "Service Booking Form",
+                    _subject: `New Service Booking - ${service.title}`
                 }),
             });
 
