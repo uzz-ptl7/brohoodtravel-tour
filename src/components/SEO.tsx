@@ -37,9 +37,9 @@ interface SEOProps {
 }
 
 const SEO = ({
-    title = "Brotherhood Company - Rwanda Travel & Tours | Gorilla Trekking, Safari & Lake Kivu Tours",
-    description = "#1 Rwanda tour operator offering gorilla trekking Volcanoes National Park, Akagera safari, Lake Kivu tours, Nyungwe Forest adventures, Kigali city tours, car rental & VIP transport. Licensed TIN: 121686474. Book authentic Rwanda experiences.",
-    keywords = "Rwanda tours, Rwanda travel, gorilla trekking Rwanda, Volcanoes National Park tours, Akagera National Park safari, Lake Kivu tours, Nyungwe Forest Rwanda, Kigali city tours, Rwanda tour operator, Rwanda safari packages, mountain gorilla trekking, Rwanda wildlife tours, Lake Kivu beach, Rwanda adventure tours, Kigali car rental, Rwanda airport transfer, Gisenyi tours, Musanze tours, Rwanda tour company, East Africa tours, Rwanda vacation packages, chimpanzee trekking Rwanda, Rwanda cultural tours, Rwanda tour guide",
+    title = "Rwanda Tourism & Travel Guide | #1 Rwanda Tours - Gorilla Trekking & Safari - Brotherhood Company",
+    description = "Discover Rwanda with #1 tour operator. Complete Rwanda travel guide: gorilla trekking, safaris, Lake Kivu, culture, hotels, transport. Licensed Rwanda tour company (TIN: 121686474). Visit Rwanda - Land of a Thousand Hills. Book authentic Rwanda experiences today.",
+    keywords = "Rwanda, Rwanda tourism, Visit Rwanda, Rwanda travel, Rwanda Africa, Rwanda country, travel to Rwanda, Rwanda vacation, Rwanda holiday, Rwanda tourist attractions, Rwanda destinations, things to do in Rwanda, Rwanda travel guide, Rwanda tour operator, gorilla trekking Rwanda, Rwanda safari, Volcanoes National Park, Lake Kivu, Akagera National Park, Nyungwe Forest, Kigali Rwanda, Rwanda tours, Rwanda trip, Rwanda travel packages, Rwanda tour packages, Rwanda wildlife, Rwanda culture, Rwanda hotels, Rwanda transport, Rwanda car rental, Rwanda airport transfer, mountain gorillas Rwanda, Rwanda adventure, Rwanda honeymoon, Rwanda family vacation, Rwanda solo travel, Rwanda group tours, Rwanda private tours, East Africa travel, Rwanda and Uganda tours, Rwanda gorilla permits, Rwanda safari packages, Rwanda beaches, Rwanda mountains, Rwanda tourism board, explore Rwanda, discover Rwanda, experience Rwanda, authentic Rwanda, Rwanda travel agency, Rwanda tour company, Rwanda tour guide, Rwanda travel tips, Rwanda itinerary, best time visit Rwanda, Rwanda weather, Rwanda culture tours, Rwanda photography, Rwanda nature, Rwanda parks, Rwanda genocide memorial, Rwanda coffee tours, Rwanda tea plantations, Rwanda hiking, Rwanda trekking, Rwanda birdwatching",
     image = "https://brohoodtravel-tour.netlify.app/og-image.jpg",
     url = "https://brohoodtravel-tour.netlify.app",
     type = "website",
@@ -209,13 +209,74 @@ const SEO = ({
                 {JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "WebSite",
-                    "name": "Brotherhood Company",
+                    "name": "Brotherhood Company - Rwanda Tourism & Travel",
+                    "alternateName": "Visit Rwanda with Brotherhood Company",
                     "url": "https://brohoodtravel-tour.netlify.app",
+                    "about": {
+                        "@type": "Country",
+                        "name": "Rwanda",
+                        "alternateName": "Republic of Rwanda",
+                        "description": "Rwanda, the Land of a Thousand Hills, is an East African country known for its mountain gorillas, stunning landscapes, vibrant culture, and remarkable development."
+                    },
                     "potentialAction": {
                         "@type": "SearchAction",
                         "target": "https://brohoodtravel-tour.netlify.app/destinations?q={search_term_string}",
                         "query-input": "required name=search_term_string"
                     }
+                })}
+            </script>
+
+            {/* Structured Data - Rwanda as Tourist Destination */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Country",
+                    "name": "Rwanda",
+                    "alternateName": ["Republic of Rwanda", "Land of a Thousand Hills"],
+                    "description": "Rwanda is a landlocked country in East Africa, known for its breathtaking scenery, mountain gorillas, vibrant culture, safety, cleanliness, and economic development. Top attractions include Volcanoes National Park for gorilla trekking, Lake Kivu beaches, Akagera National Park safari, Nyungwe Forest, and Kigali city.",
+                    "url": "https://brohoodtravel-tour.netlify.app",
+                    "touristType": [
+                        "Adventure Seekers",
+                        "Wildlife Enthusiasts",
+                        "Nature Lovers",
+                        "Cultural Explorers",
+                        "Photographers",
+                        "Honeymooners",
+                        "Family Travelers",
+                        "Solo Travelers"
+                    ],
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "-1.9441",
+                        "longitude": "30.0619"
+                    },
+                    "containsPlace": [
+                        {
+                            "@type": "TouristDestination",
+                            "name": "Volcanoes National Park",
+                            "description": "Home to endangered mountain gorillas"
+                        },
+                        {
+                            "@type": "TouristDestination",
+                            "name": "Lake Kivu",
+                            "description": "One of Africa's Great Lakes with beautiful beaches"
+                        },
+                        {
+                            "@type": "TouristDestination",
+                            "name": "Akagera National Park",
+                            "description": "Big Five safari destination"
+                        },
+                        {
+                            "@type": "TouristDestination",
+                            "name": "Nyungwe Forest",
+                            "description": "Ancient rainforest with chimpanzees"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Kigali",
+                            "description": "Clean, safe capital city of Rwanda"
+                        }
+                    ]
                 })}
             </script>
 

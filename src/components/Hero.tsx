@@ -18,13 +18,13 @@ const Hero = () => {
       <div className="relative container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Your Journey
-            <span className="block text-white/90">Starts Here</span>
+            Discover Rwanda
+            <span className="block text-white/90">Land of a Thousand Hills</span>
           </h1>
 
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
-            Professional transport, unforgettable travel packages, and guided tours
-            across beautiful destinations. Safe, reliable, and comfortable.
+            Experience authentic Rwanda - gorilla trekking, safaris, Lake Kivu beaches,
+            culture & adventure. #1 Rwanda tour operator with expert guides and 24/7 support.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
