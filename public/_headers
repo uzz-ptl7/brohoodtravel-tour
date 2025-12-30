@@ -32,6 +32,19 @@
 /manifest.json
   Cache-Control: public, max-age=86400, must-revalidate
 
+# Favicons
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/x-icon
+
+/logo.png
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/png
+
+/logo.svg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/svg+xml
+
 # Sitemap and Robots
 /sitemap.xml
   Cache-Control: public, max-age=86400, must-revalidate
