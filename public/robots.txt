@@ -1,5 +1,5 @@
 # robots.txt for Brotherhood Company Travel & Tours
-# https://brohoodtravel-tour.netlify.app/robots.txt
+# https://brotherhoodunitedcompanyltd.com/robots.txt
 
 User-agent: *
 Allow: /
@@ -44,7 +44,7 @@ User-agent: WhatsApp
 Allow: /
 
 # Sitemaps
-Sitemap: https://brohoodtravel-tour.netlify.app/sitemap.xml
+Sitemap: https://brotherhoodunitedcompanyltd.com/sitemap.xml
 
 # Host (preferred domain)
-Host: https://brohoodtravel-tour.netlify.app
+Host: https://brotherhoodunitedcompanyltd.com

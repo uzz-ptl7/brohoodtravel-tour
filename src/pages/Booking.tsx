@@ -225,12 +225,12 @@ Includes: ${destination.price_details}` : ''}`;
         title={destination ? `Book ${destination.name} - Brotherhood Company` : "Book Tour - Brotherhood Company"}
         description={destination ? `Book your ${destination.name} tour package in ${destination.location}. Professional guide, transport, and unforgettable experiences with Brotherhood Company.` : "Book your Rwanda tour package with Brotherhood Company. Professional service and unforgettable experiences."}
         keywords={destination ? `book ${destination.name}, ${destination.location} tour booking, Rwanda tour booking, Brotherhood Company booking` : "Rwanda tour booking, book Rwanda travel"}
-        url={`https://brohoodtravel-tour.netlify.app/booking/${id}`}
+        url={`https://brotherhoodunitedcompanyltd.com/booking/${id}`}
         breadcrumbs={[
-          { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
-          { name: "Destinations", url: "https://brohoodtravel-tour.netlify.app/destinations" },
-          ...(destination ? [{ name: destination.name, url: `https://brohoodtravel-tour.netlify.app/destination/${id}` }] : []),
-          { name: "Booking", url: `https://brohoodtravel-tour.netlify.app/booking/${id}` }
+          { name: "Home", url: "https://brotherhoodunitedcompanyltd.com/" },
+          { name: "Destinations", url: "https://brotherhoodunitedcompanyltd.com/destinations" },
+          ...(destination ? [{ name: destination.name, url: `https://brotherhoodunitedcompanyltd.com/destination/${id}` }] : []),
+          { name: "Booking", url: `https://brotherhoodunitedcompanyltd.com/booking/${id}` }
         ]}
       />
       <Header />

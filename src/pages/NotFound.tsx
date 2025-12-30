@@ -19,7 +19,7 @@ const NotFound = () => {
       <SEO
         title="404 - Page Not Found | Brotherhood Company"
         description="The page you are looking for could not be found. Browse our Rwanda travel destinations, tours, and services."
-        url="https://brohoodtravel-tour.netlify.app/404"
+        url="https://brotherhoodunitedcompanyltd.com/404"
       />
       <Header />
       <div className="min-h-[60vh] flex items-center justify-center">

@@ -40,8 +40,8 @@ const SEO = ({
     title = "Rwanda Tourism & Travel Guide | #1 Rwanda Tours - Gorilla Trekking & Safari - Brotherhood Company",
     description = "Discover Rwanda with #1 tour operator. Complete Rwanda travel guide: gorilla trekking, safaris, Lake Kivu, culture, hotels, transport. Licensed Rwanda tour company (TIN: 121686474). Visit Rwanda - Land of a Thousand Hills. Book authentic Rwanda experiences today.",
     keywords = "Rwanda, Rwanda tourism, Visit Rwanda, Rwanda travel, Rwanda Africa, Rwanda country, travel to Rwanda, Rwanda vacation, Rwanda holiday, Rwanda tourist attractions, Rwanda destinations, things to do in Rwanda, Rwanda travel guide, Rwanda tour operator, gorilla trekking Rwanda, Rwanda safari, Volcanoes National Park, Lake Kivu, Akagera National Park, Nyungwe Forest, Kigali Rwanda, Rwanda tours, Rwanda trip, Rwanda travel packages, Rwanda tour packages, Rwanda wildlife, Rwanda culture, Rwanda hotels, Rwanda transport, Rwanda car rental, Rwanda airport transfer, mountain gorillas Rwanda, Rwanda adventure, Rwanda honeymoon, Rwanda family vacation, Rwanda solo travel, Rwanda group tours, Rwanda private tours, East Africa travel, Rwanda and Uganda tours, Rwanda gorilla permits, Rwanda safari packages, Rwanda beaches, Rwanda mountains, Rwanda tourism board, explore Rwanda, discover Rwanda, experience Rwanda, authentic Rwanda, Rwanda travel agency, Rwanda tour company, Rwanda tour guide, Rwanda travel tips, Rwanda itinerary, best time visit Rwanda, Rwanda weather, Rwanda culture tours, Rwanda photography, Rwanda nature, Rwanda parks, Rwanda genocide memorial, Rwanda coffee tours, Rwanda tea plantations, Rwanda hiking, Rwanda trekking, Rwanda birdwatching",
-    image = "https://brohoodtravel-tour.netlify.app/og-image.jpg",
-    url = "https://brohoodtravel-tour.netlify.app",
+    image = "https://brotherhoodunitedcompanyltd.com/og-image.jpg",
+    url = "https://brotherhoodunitedcompanyltd.com",
     type = "website",
     author = "Brotherhood Company",
     breadcrumbs,
@@ -124,8 +124,8 @@ const SEO = ({
                     "name": "Brotherhood Company",
                     "alternateName": "Brotherhood Travel & Tours",
                     "description": description,
-                    "url": "https://brohoodtravel-tour.netlify.app",
-                    "logo": "https://brohoodtravel-tour.netlify.app/logo.png",
+                    "url": "https://brotherhoodunitedcompanyltd.com",
+                    "logo": "https://brotherhoodunitedcompanyltd.com/logo.png",
                     "image": image,
                     "telephone": "+250786425200",
                     "email": "brotherhoodcompany200@gmail.com",
@@ -211,7 +211,7 @@ const SEO = ({
                     "@type": "WebSite",
                     "name": "Brotherhood Company - Rwanda Tourism & Travel",
                     "alternateName": "Visit Rwanda with Brotherhood Company",
-                    "url": "https://brohoodtravel-tour.netlify.app",
+                    "url": "https://brotherhoodunitedcompanyltd.com",
                     "about": {
                         "@type": "Country",
                         "name": "Rwanda",
@@ -220,7 +220,7 @@ const SEO = ({
                     },
                     "potentialAction": {
                         "@type": "SearchAction",
-                        "target": "https://brohoodtravel-tour.netlify.app/destinations?q={search_term_string}",
+                        "target": "https://brotherhoodunitedcompanyltd.com/destinations?q={search_term_string}",
                         "query-input": "required name=search_term_string"
                     }
                 })}
@@ -234,7 +234,7 @@ const SEO = ({
                     "name": "Rwanda",
                     "alternateName": ["Republic of Rwanda", "Land of a Thousand Hills"],
                     "description": "Rwanda is a landlocked country in East Africa, known for its breathtaking scenery, mountain gorillas, vibrant culture, safety, cleanliness, and economic development. Top attractions include Volcanoes National Park for gorilla trekking, Lake Kivu beaches, Akagera National Park safari, Nyungwe Forest, and Kigali city.",
-                    "url": "https://brohoodtravel-tour.netlify.app",
+                    "url": "https://brotherhoodunitedcompanyltd.com",
                     "touristType": [
                         "Adventure Seekers",
                         "Wildlife Enthusiasts",
@@ -286,8 +286,8 @@ const SEO = ({
                     "@context": "https://schema.org",
                     "@type": "Organization",
                     "name": "Brotherhood Company",
-                    "url": "https://brohoodtravel-tour.netlify.app",
-                    "logo": "https://brohoodtravel-tour.netlify.app/logo.png",
+                    "url": "https://brotherhoodunitedcompanyltd.com",
+                    "logo": "https://brotherhoodunitedcompanyltd.com/logo.png",
                     "contactPoint": {
                         "@type": "ContactPoint",
                         "telephone": "+250786425200",
@@ -421,7 +421,7 @@ const SEO = ({
                         "provider": {
                             "@type": "TravelAgency",
                             "name": "Brotherhood Company",
-                            "url": "https://brohoodtravel-tour.netlify.app"
+                            "url": "https://brotherhoodunitedcompanyltd.com"
                         }
                     })}
                 </script>

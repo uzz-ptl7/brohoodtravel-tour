@@ -102,10 +102,10 @@ const AllDestinations = () => {
                 title="All Destinations in Rwanda - Brotherhood Company Tours"
                 description="Browse all travel destinations in Rwanda including Kigali, Volcanoes National Park for gorilla trekking, Lake Kivu beaches, Nyungwe Forest canopy walks, Akagera safari, and more. Find your perfect Rwanda adventure with Brotherhood Company."
                 keywords="Rwanda destinations, all Rwanda tours, Rwanda travel packages, gorilla trekking, Lake Kivu, Nyungwe Forest, Akagera safari, Kigali city tours, Rwanda attractions, Rwanda holiday packages, East Africa tours"
-                url="https://brohoodtravel-tour.netlify.app/destinations"
+                url="https://brotherhoodunitedcompanyltd.com/destinations"
                 breadcrumbs={[
-                    { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
-                    { name: "Destinations", url: "https://brohoodtravel-tour.netlify.app/destinations" }
+                    { name: "Home", url: "https://brotherhoodunitedcompanyltd.com/" },
+                    { name: "Destinations", url: "https://brotherhoodunitedcompanyltd.com/destinations" }
                 ]}
             />
             <Header />

@@ -196,11 +196,11 @@ Message: ${formData.message || 'None'}`;
                 title={`Book ${service.title} - Brotherhood Company`}
                 description={`Book ${service.title} service in Rwanda - ${service.description}. ${service.price ? `Starting from ${service.price}. ` : ''}Professional and reliable service with Brotherhood Company.`}
                 keywords={`${service.title} Rwanda, book ${service.title}, Rwanda ${service.id}, Brotherhood Company ${service.title}, Rwanda travel services`}
-                url={`https://brohoodtravel-tour.netlify.app/service-booking/${service.id}`}
+                url={`https://brotherhoodunitedcompanyltd.com/service-booking/${service.id}`}
                 breadcrumbs={[
-                    { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
-                    { name: "Services", url: "https://brohoodtravel-tour.netlify.app/services" },
-                    { name: service.title, url: `https://brohoodtravel-tour.netlify.app/service-booking/${service.id}` }
+                    { name: "Home", url: "https://brotherhoodunitedcompanyltd.com/" },
+                    { name: "Services", url: "https://brotherhoodunitedcompanyltd.com/services" },
+                    { name: service.title, url: `https://brotherhoodunitedcompanyltd.com/service-booking/${service.id}` }
                 ]}
             />
             <Header />

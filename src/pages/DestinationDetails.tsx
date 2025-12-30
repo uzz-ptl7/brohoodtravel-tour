@@ -227,18 +227,18 @@ const DestinationDetails = () => {
         title={`${destination.name} Tour Package - Rwanda Tours | Brotherhood Company`}
         description={`Explore ${destination.name} in ${destination.location}. ${destination.description} Book your Rwanda tour package today with Brotherhood Company. ${destination.highlights.slice(0, 3).join(", ")}.`}
         keywords={`${destination.name} tours, ${destination.location} Rwanda, ${destination.category.toLowerCase()} Rwanda, ${destination.highlights.join(", ")}, Rwanda tour packages, ${destination.name.toLowerCase()} guide, best ${destination.name.toLowerCase()} tours, ${destination.location} travel, Rwanda ${destination.category.toLowerCase()}, Brotherhood Company Rwanda`}
-        url={`https://brohoodtravel-tour.netlify.app/destination/${destination.id}`}
+        url={`https://brotherhoodunitedcompanyltd.com/destination/${destination.id}`}
         image={(() => {
           const parts = destination.image_url.split("/");
           const file = parts[parts.length - 1];
           const localImage = imageAssetMap[file];
-          return localImage ? `https://brohoodtravel-tour.netlify.app${destination.image_url}` : destination.image_url;
+          return localImage ? `https://brotherhoodunitedcompanyltd.com${destination.image_url}` : destination.image_url;
         })()}
         type="article"
         breadcrumbs={[
-          { name: "Home", url: "https://brohoodtravel-tour.netlify.app/" },
-          { name: "Destinations", url: "https://brohoodtravel-tour.netlify.app/destinations" },
-          { name: destination.name, url: `https://brohoodtravel-tour.netlify.app/destination/${destination.id}` }
+          { name: "Home", url: "https://brotherhoodunitedcompanyltd.com/" },
+          { name: "Destinations", url: "https://brotherhoodunitedcompanyltd.com/destinations" },
+          { name: destination.name, url: `https://brotherhoodunitedcompanyltd.com/destination/${destination.id}` }
         ]}
         article={{
           publishedTime: "2024-01-01T00:00:00Z",
@@ -367,7 +367,7 @@ const DestinationDetails = () => {
                     <div className="flex items-center justify-between border-t pt-6">
                       <h4 className="font-semibold">Share this destination:</h4>
                       <SocialShare
-                        url={`https://brohoodtravel-tour.netlify.app/destination/${destination.id}`}
+                        url={`https://brotherhoodunitedcompanyltd.com/destination/${destination.id}`}
                         title={destination.name}
                         description={destination.description}
                       />
