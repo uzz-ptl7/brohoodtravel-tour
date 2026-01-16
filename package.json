@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "verify-indexing": "node scripts/verify-indexing.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -64,6 +65,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@netlify/plugin-sitemap": "^0.8.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",

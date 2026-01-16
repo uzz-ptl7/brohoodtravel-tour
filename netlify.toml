@@ -1,0 +1,117 @@
+# Netlify Configuration for Brotherhood Travel & Tours
+# This enables prerendering and optimizations for better Google indexing
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Enable Netlify's built-in prerendering for SPAs
+# This will generate static HTML for all routes during build time
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  
+  [plugins.inputs]
+    buildDir = "dist"
+    exclude = [
+      '/admin/**',
+      '/api/**'
+    ]
+
+# CANONICAL URL REDIRECTS
+# Redirect www to non-www (HTTPS) - 301 Permanent
+[[redirects]]
+  from = "https://www.brotherhoodunitedcompanyltd.com/*"
+  to = "https://brotherhoodunitedcompanyltd.com/:splat"
+  status = 301
+  force = true
+
+# Redirect HTTP to HTTPS (non-www) - 301 Permanent
+[[redirects]]
+  from = "http://brotherhoodunitedcompanyltd.com/*"
+  to = "https://brotherhoodunitedcompanyltd.com/:splat"
+  status = 301
+  force = true
+
+# Redirect HTTP www to HTTPS non-www - 301 Permanent
+[[redirects]]
+  from = "http://www.brotherhoodunitedcompanyltd.com/*"
+  to = "https://brotherhoodunitedcompanyltd.com/:splat"
+  status = 301
+  force = true
+
+# Redirect all requests to index.html for React Router (SPA fallback)
+# But only after checking for prerendered pages
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false  # Don't override existing files
+  
+# Headers for better SEO and caching
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Allow search engine crawlers
+    X-Robots-Tag = "index, follow"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Enable faster builds with caching
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true

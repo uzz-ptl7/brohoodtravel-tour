@@ -1,1 +1,14 @@
+# Canonical URL redirects - All variations redirect to HTTPS non-www
+# These 301 redirects tell Google which is the preferred version
+
+# Redirect www to non-www (permanent)
+https://www.brotherhoodunitedcompanyltd.com/*  https://brotherhoodunitedcompanyltd.com/:splat  301!
+
+# Redirect HTTP to HTTPS
+http://brotherhoodunitedcompanyltd.com/*  https://brotherhoodunitedcompanyltd.com/:splat  301!
+
+# Redirect HTTP www to HTTPS non-www
+http://www.brotherhoodunitedcompanyltd.com/*  https://brotherhoodunitedcompanyltd.com/:splat  301!
+
+# SPA fallback - serve index.html for all routes (200 rewrite, not redirect)
 /*    /index.html   200
